@@ -1,98 +1,47 @@
-NAME := libft.a
-CC := cc
-FLAGS := -Wall -Werror -Wextra
+SRCS = \
+          ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_strlen.c \
+          ft_strchr.c ft_strdup.c ft_strlcat.c ft_strlcpy.c ft_strncmp.c \
+          ft_strnstr.c ft_strrchr.c ft_substr.c ft_tolower.c ft_toupper.c \
+          ft_isprint.c ft_memset.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
+          ft_memmove.c ft_atoi.c ft_bzero.c ft_calloc.c ft_strtrim.c \
+          ft_split.c ft_itoa.c ft_strjoin.c ft_strmapi.c ft_striteri.c \
+          ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+		  ft_printf/ft_printf.c ft_printf/ft_putchar_fd.c ft_printf/ft_putnbr_fd.c \
+		  ft_printf/ft_unsigned_putnbr_fd.c ft_printf/ft_putnbr_base_fd.c ft_printf/ft_putstr_fd.c \
+		  ft_printf/ft_pointeur_base_fd.c \
+		  GNL/get_next_line.c GNL/get_next_line_utils.c \
 
-Black=\033[0;30m
-Red=\033[0;31m
-Green=\033[0;32m
-Yellow=\033[0;33m
-Blue=\033[0;34m
-Purple=\033[0;35m
-Cyan=\033[0;36m
-White=\033[0;37m
+BONUS_SRCS = \
+           ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+	   ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+	   ft_lstmap.c
 
-SRC_DIR := src/
-OBJ_DIR := obj/
-SRCS := \
-	$(SRC_DIR)src_libft/ft_isalpha.c \
-	$(SRC_DIR)src_libft/ft_isdigit.c \
-	$(SRC_DIR)src_libft/ft_isalnum.c \
-	$(SRC_DIR)src_libft/ft_isascii.c \
-	$(SRC_DIR)src_libft/ft_isprint.c \
-	$(SRC_DIR)src_libft/ft_strlen.c \
-	$(SRC_DIR)src_libft/ft_memset.c \
-	$(SRC_DIR)src_libft/ft_bzero.c \
-	$(SRC_DIR)src_libft/ft_memcpy.c \
-	$(SRC_DIR)src_libft/ft_memmove.c \
-	$(SRC_DIR)src_libft/ft_strlcpy.c \
-	$(SRC_DIR)src_libft/ft_strlcat.c \
-	$(SRC_DIR)src_libft/ft_toupper.c \
-	$(SRC_DIR)src_libft/ft_tolower.c \
-	$(SRC_DIR)src_libft/ft_strchr.c \
-	$(SRC_DIR)src_libft/ft_strrchr.c \
-	$(SRC_DIR)src_libft/ft_strncmp.c \
-	$(SRC_DIR)src_libft/ft_memchr.c \
-	$(SRC_DIR)src_libft/ft_memcmp.c \
-	$(SRC_DIR)src_libft/ft_strnstr.c \
-	$(SRC_DIR)src_libft/ft_atoi.c \
-	$(SRC_DIR)src_libft/ft_calloc.c \
-	$(SRC_DIR)src_libft/ft_strdup.c \
-	$(SRC_DIR)src_libft/ft_substr.c \
-	$(SRC_DIR)src_libft/ft_strjoin.c \
-	$(SRC_DIR)src_libft/ft_strtrim.c \
-	$(SRC_DIR)src_libft/ft_split.c \
-	$(SRC_DIR)src_libft/ft_itoa.c \
-	$(SRC_DIR)src_libft/ft_strmapi.c \
-	$(SRC_DIR)src_libft/ft_striteri.c \
-	$(SRC_DIR)src_libft/ft_putchar_fd.c \
-	$(SRC_DIR)src_libft/ft_putstr_fd.c \
-	$(SRC_DIR)src_libft/ft_putendl_fd.c \
-	$(SRC_DIR)src_libft/ft_putnbr_fd.c \
-	$(SRC_DIR)src_libft/ft_lstadd_back.c \
-	$(SRC_DIR)src_libft/ft_lstadd_front.c \
-	$(SRC_DIR)src_libft/ft_lstclear.c \
-	$(SRC_DIR)src_libft/ft_lstdelone.c \
-	$(SRC_DIR)src_libft/ft_lstiter.c \
-	$(SRC_DIR)src_libft/ft_lstlast.c \
-	$(SRC_DIR)src_libft/ft_lstmap.c \
-	$(SRC_DIR)src_libft/ft_lstnew.c \
-	$(SRC_DIR)src_libft/ft_lstsize.c \
-	\
-	$(SRC_DIR)src_ft_printf/ft_printchar.c \
-	$(SRC_DIR)src_ft_printf/ft_printf.c \
-	$(SRC_DIR)src_ft_printf/ft_printhex.c \
-	$(SRC_DIR)src_ft_printf/ft_printnbr.c \
-	$(SRC_DIR)src_ft_printf/ft_printptr.c \
-	$(SRC_DIR)src_ft_printf/ft_printstr.c \
-	$(SRC_DIR)src_ft_printf/ft_printunbr.c \
-	\
-	$(SRC_DIR)src_get_next_line/get_next_line.c \
-	\
+HEADERS = /libft.h
+OBJS = ${SRCS:.c=.o}
+BONUS_OBJS = ${BONUS_SRCS:.c=.o}
+NAME    = libft.a
+CC    = gcc
+CFLAGS    = -Wall -Wextra -Werror
+RM    = rm -rf
 
-INCLUDES := -I includes
+all: ${NAME}
 
-OBJS := $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
+.c.o :
+	@${CC} -c ${CFLAGS} -I ${HEADERS} $< -o ${<:.c=.o}
 
-$(OBJ_DIR)%.o : $(SRC_DIR)%.c
-	@mkdir -p $(@D)
-	@$(CC) $(FLAGS) $(INCLUDES) -c -o $@ $<
-	@echo "$(Cyan)Compiling $<...$(White)"
+${NAME}: ${OBJS}
+	@ar rcs ${NAME} ${OBJS}
+	@ranlib ${NAME}
 
-$(NAME) : $(OBJS)
-	@ar rcs $(NAME) $(OBJS)
-	@echo "$(Green)$(NAME) CREATED $(White)"
+bonus: ${OBJS} ${BONUS_OBJS}
+	@ar rcs ${NAME} ${OBJS} ${BONUS_OBJS}
 
-all : $(NAME)
+clean:
+	@${RM} ${OBJS} ${BONUS_OBJS}
 
-clean :
-	@echo "$(Red)Cleaning object files...$(White)"
-	@rm -f $(OBJS)
-	@rm -rf $(OBJ_DIR)
-
-fclean : clean
-	@rm -f $(NAME)
-	@echo "$(Red)$(NAME) DELETED $(White)"
+fclean: clean
+	@${RM} ${NAME}
 
 re : fclean all
 
-.PHONY: re clean fclean
+.PHONY: all bonus clean fclean re

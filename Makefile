@@ -15,11 +15,16 @@ Purple=\033[0;35m
 Cyan=\033[0;36m
 White=\033[0;37m
 
-SRC_DIR := sources/
+SRC_DIR := mandatory_srcs/
 OBJ_DIR := objs/
+
+PARSING := parsing/
 
 SRCS := \
 	$(SRC_DIR)main.c \
+	\
+	$(SRC_DIR)$(PARSING)check_args.c
+	\
 
 LIBFT_DIR := libft/
 LIBFT_LIB := libft/libft.a
