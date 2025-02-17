@@ -23,7 +23,11 @@ PARSING := parsing/
 SRCS := \
 	$(SRC_DIR)main.c \
 	\
-	$(SRC_DIR)$(PARSING)check_args.c
+	$(SRC_DIR)$(PARSING)check_args.c \
+	$(SRC_DIR)$(PARSING)ft_parsing.c \
+	$(SRC_DIR)$(PARSING)save_path_textures.c \
+	$(SRC_DIR)$(PARSING)save_color_background.c \
+	$(SRC_DIR)$(PARSING)utils_parsing.c \
 	\
 
 LIBFT_DIR := libft/

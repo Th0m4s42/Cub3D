@@ -1,0 +1,13 @@
+#########################
+#########   LOG #########
+#########################
+
+-en cours-
+
+check des ID NO SO WE et EA         *DONE*
+check des ID F et C                 *a faire*
+check si TOUT les ID sont valider   *a faire*
+save map                            *a faire*
+check map                           *a faire*
+
+Ca compile ?						CA COMPIIIILE !!!

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckenaip <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 11:18:38 by ckenaip           #+#    #+#             */
-/*   Updated: 2023/11/15 18:54:04 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/02/17 17:19:26 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 /* PARAMETER s1: The string to be trimmed.

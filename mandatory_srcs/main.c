@@ -6,7 +6,7 @@
 /*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/17 15:05:43 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/02/17 17:33:53 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	init_game(t_game *game)
 	game->visual.north = NULL;
 	game->visual.south = NULL;
 	game->visual.west = NULL;
-	game->visual.south = NULL;
+	game->visual.east = NULL;
 	game->visual.floor_r = -1;
 	game->visual.floor_g = -1;
 	game->visual.floor_b = -1;
@@ -60,5 +60,6 @@ int	main(int ac, char **av, char **envp)
 	if (check_args(ac, ++av, envp) == false)
 		return (1);
 	init_game(&game);
+	ft_parsing(&game, *av);
 	return (0);
 }

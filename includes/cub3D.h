@@ -6,7 +6,7 @@
 /*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/17 15:03:30 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/02/17 17:23:23 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 
 # include "../libft/libft.h"
 
+# include <math.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <stdbool.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 typedef struct s_visual
 {
@@ -44,7 +47,16 @@ typedef struct s_game
 	//ptr
 }	t_game;
 
+typedef bool	(*t_array)(t_game *game, char *line);
+
 /*  PARSING */
 bool	check_args(int ac, char **av, char **envp);
+bool	ft_parsing(t_game *game, char *path);
+bool	save_north(t_game *game, char *line);
+bool	save_south(t_game *game, char *line);
+bool	save_west(t_game *game, char *line);
+bool	save_east(t_game *game, char *line);
+bool	in_charset(char c, char *charset);
+bool	check_id(char *line, size_t i);
 
 #endif

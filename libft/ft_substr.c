@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckenaip <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:42:39 by ckenaip           #+#    #+#             */
-/*   Updated: 2023/11/15 18:53:29 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/02/17 17:19:30 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+
+#include "libft.h"
 
 static void	ft_inter(char const *s, unsigned int start, size_t len, char *sub)
 {
@@ -37,13 +38,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (0);
 	if (ft_strlen(s) <= start || !s)
-	{
-		substring = malloc(1);
-		if (!substring)
-			return (0);
-		substring[0] = '\0';
-		return (substring);
-	}
+		return (NULL);
 	if (ft_strlen(s) - start < len)
 		substring = (char *)malloc(sizeof(char) * (ft_strlen(s) - start + 1));
 	else
