@@ -1,4 +1,4 @@
-#include "../cub3D.h"
+#include <cub3D.h>
 
 
 /*		EXTERNAL FUNCTS. :
@@ -13,9 +13,25 @@
 	• All functions of the MinilibX
 */
 
+/*
+	PARSING:
+
+	int rgb_to_int(double r, double g, double b)
+	{
+    	int color = 0;
+    	color |= (int)(b * 255);
+    	color |= (int)(g * 255) << 8;
+    	color |= (int)(r * 255) << 16;
+    	return (color);
+	}
+
+*/
+
 int	main(int ac, char **av, char **envp)
 {
+	t_game	game;
 
+	(void)game;
 	/*	Mise en place	*/
 	printf("Mandatory Part\n");
 

@@ -1,7 +1,7 @@
 
 
 
-#include "../../cub3D.h"
+#include <cub3D.h>
 
 static bool	check_name(char *name)
 {
