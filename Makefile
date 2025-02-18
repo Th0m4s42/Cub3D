@@ -19,6 +19,7 @@ SRC_DIR := mandatory_srcs/
 OBJ_DIR := objs/
 
 PARSING := parsing/
+EXIT := exit/
 
 SRCS := \
 	$(SRC_DIR)main.c \
@@ -28,6 +29,8 @@ SRCS := \
 	$(SRC_DIR)$(PARSING)save_path_textures.c \
 	$(SRC_DIR)$(PARSING)save_color_background.c \
 	$(SRC_DIR)$(PARSING)utils_parsing.c \
+	\
+	$(SRC_DIR)$(EXIT)free_visuals.c \
 	\
 
 LIBFT_DIR := libft/
