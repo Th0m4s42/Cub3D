@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/19 11:44:12 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/19 12:45:18 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,9 @@ int	main(int ac, char **av, char **envp)
 	if (check_args(ac, ++av, envp) == false)
 		return (1);
 	init_game(&game);
-	if (ft_parsing(&game, *av) == false)
-		ft_putendl_fd("Error, Double check", 2);
+	if (ft_parsing(&game, *av))
+		(void)
+	print_visual_value(game.visual);
 	ft_free_game(&game);
 	return (0);
 }

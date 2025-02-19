@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:41:11 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/19 11:34:01 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/19 12:11:50 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ bool	save_north(t_game *game, char *line)
 		return (false);
 	if (game->visual.north != NULL && ft_strlen(game->visual.north) == 0)
 		return (ft_putendl_fd("No path for NO identifier", 2), false);
-	printf("north = %s\n", game->visual.north);
 	return (true);
 }
 
@@ -66,7 +65,6 @@ bool	save_south(t_game *game, char *line)
 		return (false);
 	if (game->visual.south != NULL && ft_strlen(game->visual.south) == 0)
 		return (ft_putendl_fd("No path for SO identifier", 2), false);
-	printf("south = %s\n", game->visual.south);
 	return (true);
 }
 
@@ -88,7 +86,6 @@ bool	save_west(t_game *game, char *line)
 		return (false);
 	if (game->visual.west != NULL && ft_strlen(game->visual.west) == 0)
 		return (ft_putendl_fd("No path for WE identifier", 2), false);
-	printf("west = %s\n", game->visual.west);
 	return (true);
 }
 
@@ -110,6 +107,5 @@ bool	save_east(t_game *game, char *line)
 		return (false);
 	if (game->visual.east != NULL && ft_strlen(game->visual.east) == 0)
 		return (ft_putendl_fd("No path for EA identifier", 2), false);
-	printf("east = %s\n", game->visual.east);
 	return (true);
 }

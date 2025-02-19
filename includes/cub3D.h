@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/19 11:36:40 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/19 12:28:22 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ bool	in_charset(char c, char *charset);
 bool	incr_to_identifier(char *line, char *id, size_t *i);
 bool	check_id(char *line, size_t i);
 bool	all_identifier_set(t_visual visual);
+void	print_visual_value(t_visual visual);
+int		cub3d_atoi(char *str);
 
 
 /*******************************EXIT*******************************************/

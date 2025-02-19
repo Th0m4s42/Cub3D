@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:13:12 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/19 10:14:28 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/19 12:44:38 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static bool	check_config_file(t_game *game, int fd)
 		if (in_charset(line[y], "01") && all_identifier_set(game->visual))
 			break ;
 		if (check_id(line, y) == false)
-			return (false);//penser a free
+			return (free(line), false);//penser a free
 		while (checker_identifier[++i])
 		{
 			if (checker_identifier[i](game, line) == false)
@@ -51,6 +51,7 @@ static bool	check_config_file(t_game *game, int fd)
 		free(line);
 		line = get_next_line(fd);
 	}
+	printf("trying to save map\n");
 	while (line)
 	{
 		//SAVE MAP;
