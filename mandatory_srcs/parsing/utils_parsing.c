@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:26:08 by curry-san         #+#    #+#             */
-/*   Updated: 2025/02/19 12:42:43 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/19 12:57:26 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	cub3d_atoi(char *str)
 
 	i = -1;
 	value = 0;
-	count = 0;	
+	count = 0;
 	while (in_charset(str[++i], "0123456789") == true)
 	{
 		if (count > 3)
