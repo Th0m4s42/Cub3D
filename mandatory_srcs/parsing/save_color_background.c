@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   save_color_background.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:41:07 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/19 12:45:44 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/19 12:57:07 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,8 @@ static bool	save_celling_value(t_game *game, char *line, size_t y, char id)
 		game->visual.cell_b = ft_atoi(line);
 		if (game->visual.cell_r == -1 || game->visual.cell_g == -1
 			|| game->visual.cell_b == -1)
-			return (false);	
+			return (false);
 	}
-
 	return (true);
 }
 
@@ -58,11 +57,11 @@ bool	check_syntaxe(t_game *game, char *line, char id)
 	y = 0;
 	while (y < 3)
 	{
-		if (y < 2 && (line[i] <= '0' || line[i] >= '9'))//first check
+		if (y < 2 && (line[i] <= '0' || line[i] >= '9')) //first check
 			return (false);
 		if (save_floor_value(game, (line + i), y, id) == false
 			|| save_celling_value(game, (line + i), y, id) == false)
-			return(false);
+			return (false);
 		while (line[i] <= '9' && line[i] >= '0')
 			i++;
 		while (in_charset(line[i], "\t\v\n\f\r "))
