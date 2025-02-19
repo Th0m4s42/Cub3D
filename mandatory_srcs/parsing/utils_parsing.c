@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:26:08 by curry-san         #+#    #+#             */
-/*   Updated: 2025/02/19 12:57:26 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/19 14:50:47 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,23 @@ bool	all_identifier_set(t_visual visual)
 {
 	if (!visual.north || !visual.south || !visual.west || !visual.east)
 		return (false);
-	// if (visual.floor_r == -1 || visual.floor_g == -1 || visual.floor_b == -1)
-	// 	return (false);
-	// if (visual.cell_r == -1 || visual.cell_g == -1 || visual.cell_b == -1)
-	// 	return (false);
+	if (visual.floor_r == -1 || visual.floor_g == -1 || visual.floor_b == -1)
+		return (false);
+	if (visual.cell_r == -1 || visual.cell_g == -1 || visual.cell_b == -1)
+		return (false);
 	return (true);
+}
+
+bool	empty_line(char *line)
+{
+	size_t	i;
+
+	i = 0;
+	while (in_charset(*(line + i), "\t\v\n\f\r"))
+		i++;
+	if (*(line + i) == '\0')
+		return (true);
+	return (false);
 }
 
 void	print_visual_value(t_visual visual)

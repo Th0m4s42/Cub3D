@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:13:12 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/19 14:45:07 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/19 15:22:55 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,14 @@ static bool	check_config_file(t_game *game, int fd)
 	line = get_next_line(fd);
 	if (save_visual(game, &line, fd) == false)
 		return (false);
-	printf("trying to save map\n");
+	//time to create map
 	while (line)
 	{
-		//SAVE MAP;
 		free(line);
 		line = get_next_line(fd);
 	}
+	// if (game->map == NULL)
+	// 	return (ft_putendl_fd("no Map in files", 2), false);
 	return (true);
 }
 
@@ -76,5 +77,10 @@ bool	ft_parsing(t_game *game, char *path)
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		return (perror(path), false);
-	return (check_config_file(game, fd));
+	if (check_config_file(game, fd) == false)
+	{
+		get_next_line(-1);
+		return (false);
+	}
+	return (true);
 }
