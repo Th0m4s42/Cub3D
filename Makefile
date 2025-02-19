@@ -26,11 +26,16 @@ SRCS := \
 	\
 	$(SRC_DIR)$(PARSING)check_args.c \
 	$(SRC_DIR)$(PARSING)ft_parsing.c \
+	\
 	$(SRC_DIR)$(PARSING)save_path_textures.c \
 	$(SRC_DIR)$(PARSING)save_color_background.c \
+	\
 	$(SRC_DIR)$(PARSING)utils_parsing.c \
-	$(SRC_DIR)$(PARSING)utils_textures.c \
-	$(SRC_DIR)$(PARSING)utils_background.c \
+	$(SRC_DIR)$(PARSING)utils_realloc.c \
+	$(SRC_DIR)$(PARSING)utils_check_id.c \
+	\
+	$(SRC_DIR)$(PARSING)ft_check_hole.c \
+	$(SRC_DIR)$(PARSING)ft_checker_map.c \
 	\
 	$(SRC_DIR)$(EXIT)free_visuals.c \
 	\

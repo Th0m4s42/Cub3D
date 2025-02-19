@@ -6,9 +6,11 @@
 
 check des ID NO SO WE et EA			*DONE*
 =>free à la sortie du programme		*DONE*
-check des ID F et C					*a faire*
-check si TOUT les ID sont valider	*a faire*
-save map							*a faire*
-check map							*a faire*
+check des ID F et C					*DONE*
+check si TOUT les ID sont valider	*DONE*
+save map							*DONE*
+check map							*DONE*
+
+TESTER JUSQUA LA MOOOOOORT			*en cours*
 
 Ca compile ?						CA COMPIIIILE !!!

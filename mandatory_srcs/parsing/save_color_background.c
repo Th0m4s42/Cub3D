@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   save_color_background.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:41:07 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/19 12:57:07 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/19 21:37:40 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static bool	save_celling_value(t_game *game, char *line, size_t y, char id)
 	return (true);
 }
 
-bool	check_syntaxe(t_game *game, char *line, char id)
+static bool	check_syntaxe(t_game *game, char *line, char id)
 {
 	size_t	i;
 	size_t	y;

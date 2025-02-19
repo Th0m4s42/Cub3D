@@ -6,25 +6,11 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:41:11 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/19 12:11:50 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/19 21:38:51 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
-
-// static bool	incr_to_identifier(char *line, char *id, size_t *i)
-// {
-// 	while (in_charset(line[(*i)], " \t") == true)
-// 		(*i)++;
-// 	if (ft_strncmp(line + (*i), id, 2) != 0)
-// 		return (false);
-// 	(*i) += 2;
-// 	if (in_charset(line[(*i)], " \t") == false)
-// 		return (false);
-// 	while (in_charset(line[(*i)], " \t") == true)
-// 		(*i)++;
-// 	return (true);
-// }
 
 bool	save_north(t_game *game, char *line)
 {

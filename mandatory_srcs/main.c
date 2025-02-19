@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/19 12:45:18 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/19 21:52:12 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 
 */
 
-void	init_game(t_game *game)
+static void	init_game(t_game *game)
 {
 	game->visual.north = NULL;
 	game->visual.south = NULL;
@@ -62,9 +62,8 @@ int	main(int ac, char **av, char **envp)
 	if (check_args(ac, ++av, envp) == false)
 		return (1);
 	init_game(&game);
-	if (ft_parsing(&game, *av))
-		(void)
-	print_visual_value(game.visual);
+	ft_parsing(&game, *av);
+	print_visual_value(game.visual, game.map);
 	ft_free_game(&game);
 	return (0);
 }

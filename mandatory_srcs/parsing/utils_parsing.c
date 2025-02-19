@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:26:08 by curry-san         #+#    #+#             */
-/*   Updated: 2025/02/19 14:50:47 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/19 21:50:21 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,7 @@ bool	empty_line(char *line)
 	return (false);
 }
 
-void	print_visual_value(t_visual visual)
-{
-	printf("Path :\n");
-	printf("\tNO -> %s\n", visual.north);
-	printf("\tWE -> %s\n", visual.west);
-	printf("\tEA -> %s\n", visual.east);
-	printf("\tSO -> %s\n", visual.south);
-	printf("Floor value :\n");
-	printf("\tR = %d, G = %d, B = %d\n",
-		visual.floor_r, visual.floor_g, visual.floor_b);
-	printf("Celling value :\n");
-	printf("\tR = %d, G = %d, B = %d\n",
-		visual.cell_r, visual.cell_g, visual.cell_b);
-}
+
 
 int	cub3d_atoi(char *str)
 {
