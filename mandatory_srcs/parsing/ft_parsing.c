@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:13:12 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/17 17:38:49 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/02/19 10:14:28 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void	init_function_array(t_array (*funct_array)[7])
 	(*funct_array)[1] = save_south;
 	(*funct_array)[2] = save_west;
 	(*funct_array)[3] = save_east;
-	(*funct_array)[4] = NULL;
-	(*funct_array)[5] = NULL;
+	(*funct_array)[4] = save_floor;
+	(*funct_array)[5] = save_celling;
 	(*funct_array)[6] = NULL;
 }
 
@@ -35,19 +35,25 @@ static bool	check_config_file(t_game *game, int fd)
 	line = get_next_line(fd);
 	while (line)
 	{
-		//aller directement a lidentifier ici!,
-		// check si line vide ou si wrong identifier
 		y = 0;
-		while (in_charset(line[y], " \t\n") == true)
+		while (in_charset(line[y], " \t\v\f\r\n") == true)
 			y++;
+		if (in_charset(line[y], "01") && all_identifier_set(game->visual))
+			break ;
 		if (check_id(line, y) == false)
 			return (false);//penser a free
 		while (checker_identifier[++i])
 		{
 			if (checker_identifier[i](game, line) == false)
-				return (false);
+				return (free(line), false);
 		}
 		i = -1;
+		free(line);
+		line = get_next_line(fd);
+	}
+	while (line)
+	{
+		//SAVE MAP;
 		free(line);
 		line = get_next_line(fd);
 	}

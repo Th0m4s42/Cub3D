@@ -29,6 +29,8 @@ SRCS := \
 	$(SRC_DIR)$(PARSING)save_path_textures.c \
 	$(SRC_DIR)$(PARSING)save_color_background.c \
 	$(SRC_DIR)$(PARSING)utils_parsing.c \
+	$(SRC_DIR)$(PARSING)utils_textures.c \
+	$(SRC_DIR)$(PARSING)utils_background.c \
 	\
 	$(SRC_DIR)$(EXIT)free_visuals.c \
 	\

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/18 07:36:13 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/19 11:44:12 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ void	init_game(t_game *game)
 	game->visual.south = NULL;
 	game->visual.west = NULL;
 	game->visual.east = NULL;
+	game->visual.floor = false;
 	game->visual.floor_r = -1;
 	game->visual.floor_g = -1;
 	game->visual.floor_b = -1;
+	game->visual.celling = false;
 	game->visual.cell_r = -1;
 	game->visual.cell_g = -1;
 	game->visual.cell_b = -1;
@@ -60,7 +62,8 @@ int	main(int ac, char **av, char **envp)
 	if (check_args(ac, ++av, envp) == false)
 		return (1);
 	init_game(&game);
-	ft_parsing(&game, *av);
+	if (ft_parsing(&game, *av) == false)
+		ft_putendl_fd("Error, Double check", 2);
 	ft_free_game(&game);
 	return (0);
 }
