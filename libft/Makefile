@@ -9,7 +9,7 @@ SRCS = \
 		  ft_printf/ft_printf.c ft_printf/ft_putchar_fd.c ft_printf/ft_putnbr_fd.c \
 		  ft_printf/ft_unsigned_putnbr_fd.c ft_printf/ft_putnbr_base_fd.c ft_printf/ft_putstr_fd.c \
 		  ft_printf/ft_pointeur_base_fd.c \
-		  GNL/get_next_line.c GNL/get_next_line_utils.c \
+		  GNL/get_next_line.c \
 
 BONUS_SRCS = \
            ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \

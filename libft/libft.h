@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:23:47 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/15 21:36:26 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/19 13:36:56 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ void	*ft_realloc(void *ptr, size_t size);
 ssize_t	ft_strlen_gnl(char *str);
 int		found_newline(char *tab, ssize_t bytes_read);
 char	*buf_to_stash(char *buf, char *stash, ssize_t bytes_read);
-char	*ft_line(char *line, char *stash);
 char	*get_next_line(int fd);
 
 /*************** PPRINTF *******************/
