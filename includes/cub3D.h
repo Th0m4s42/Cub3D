@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/19 21:52:50 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/20 10:25:02 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_H
 
 # include "../libft/libft.h"
+# include "../minilibx-linux/mlx.h"
 
 # include <math.h>
 # include <stdio.h>
@@ -23,8 +24,27 @@
 # include <fcntl.h>
 
 ////////////////////////////////////////////////////////////////////////////////
+//								DEFINES										  //
+////////////////////////////////////////////////////////////////////////////////
+
+# define WIDTH 1080
+# define HEIGHT 520
+# define BLOCK_SIZE 64
+# define MOVE_SPEED 0.1
+# define ROTATE_SPEED 0.1
+# define PI 3.14159265359
+
+////////////////////////////////////////////////////////////////////////////////
 //								STRUCTURES									  //
 ////////////////////////////////////////////////////////////////////////////////
+
+typedef struct s_player
+{
+	double	x;
+	double	y;
+	double	dirx;
+	double	diry;
+}	t_player;
 
 typedef struct s_visual
 {
@@ -48,9 +68,14 @@ typedef struct s_game
 {
 	t_visual	visual;
 	char		**map;
-	//player
-	//mlx
-	//ptr
+	t_player	player;
+	int			bpp;
+	int			size_line;
+	int			endian;
+	char		*addr;
+	void		*mlx;
+	void		*win;
+	void		*img;
 }	t_game;
 
 typedef bool	(*t_array)(t_game *game, char *line);
@@ -97,8 +122,13 @@ int		cub3d_atoi(char *str);
 /*	utils_realloc	*/
 void	ft_realloc_cub3d(char ***src, char *line);
 
-/*	BONUS non normé*/
+/*	BONUS non normé	*/
 void	print_visual_value(t_visual visual, char **map);// in check id file
+
+/*******************************RAYCASTING*************************************/
+
+/*	put_pixel.c	*/
+void	put_pixel(t_game *game, int x, int y, int color);
 
 /*******************************EXIT*******************************************/
 

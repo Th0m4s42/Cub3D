@@ -19,6 +19,8 @@ SRC_DIR := mandatory_srcs/
 OBJ_DIR := objs/
 
 PARSING := parsing/
+RAYCASTING := raycasting/
+GAME := game/
 EXIT := exit/
 
 SRCS := \
@@ -38,6 +40,8 @@ SRCS := \
 	$(SRC_DIR)$(PARSING)ft_checker_map.c \
 	\
 	$(SRC_DIR)$(EXIT)free_visuals.c \
+	\
+	$(SRC_DIR)$(RAYCASTING)put_pixel.c \
 	\
 
 LIBFT_DIR := libft/
