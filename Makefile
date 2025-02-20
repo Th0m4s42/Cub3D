@@ -21,6 +21,7 @@ OBJ_DIR := objs/
 PARSING := parsing/
 RAYCASTING := raycasting/
 GAME := game/
+KEY_EVENT := key_event/
 EXIT := exit/
 
 SRCS := \
@@ -44,6 +45,8 @@ SRCS := \
 	$(SRC_DIR)$(RAYCASTING)put_pixel.c \
 	\
 	$(SRC_DIR)$(GAME)player.c \
+	\
+	$(SRC_DIR)$(KEY_EVENT)key_event.c \
 	\
 
 LIBFT_DIR := libft/
