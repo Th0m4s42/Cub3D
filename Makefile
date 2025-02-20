@@ -43,6 +43,8 @@ SRCS := \
 	\
 	$(SRC_DIR)$(RAYCASTING)put_pixel.c \
 	\
+	$(SRC_DIR)$(GAME)player.c \
+	\
 
 LIBFT_DIR := libft/
 LIBFT_LIB := libft/libft.a

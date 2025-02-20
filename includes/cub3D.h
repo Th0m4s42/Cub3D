@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/20 10:25:02 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/20 11:32:26 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,11 @@ void	print_visual_value(t_visual visual, char **map);// in check id file
 
 /*	put_pixel.c	*/
 void	put_pixel(t_game *game, int x, int y, int color);
+
+/*******************************GAME*******************************************/
+
+/*	player.c	*/
+
 
 /*******************************EXIT*******************************************/
 
