@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/20 12:08:09 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/20 12:40:33 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,11 @@ void	print_visual_value(t_visual visual, char **map);// in check id file
 
 /*	put_pixel.c	*/
 void	put_pixel(t_game *game, int x, int y, int color);
+
+/*******************************GAME*******************************************/
+
+/*	player.c	*/
+
 
 /*******************************EXIT*******************************************/
 
