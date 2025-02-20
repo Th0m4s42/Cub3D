@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 11:30:09 by thbasse           #+#    #+#             */
-/*   Updated: 2025/02/20 13:00:12 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/20 13:07:53 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@ static void	player_view(int dirx, int diry, char orientation)
 	if (orientation == 'N')
 	{
 		dirx = 0;
-		diry = -1;
+		diry -= 1;
 	}
 	if (orientation == 'S')
 	{
 		dirx = 0;
-		diry = 1;
+		diry += 1;
 	}
 	if (orientation == 'E')
 	{
-		dirx = -1;
+		dirx -= 1;
 		diry = 0;
 	}
 	if (orientation == 'W')
 	{
-		dirx = 1;
+		dirx += 1;
 		diry = 0;
 	}
 }
