@@ -1,1 +1,1 @@
-*.vgcore
+vgcore* // Ignore all valgrind core dumps
