@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 11:46:33 by curry-san         #+#    #+#             */
-/*   Updated: 2025/02/21 14:09:35 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/21 14:39:57 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	init_key_event(t_game *game)
 	(void)game;
 	mlx_hook(game->win, 2, 1L << 0, &key_press, game);
 	// mlx_hook(game->win, 3, 1L << 1, &key_release, game);
-	// mlx_hook(game->win, 17, 1L << 19, &cross_event, game);
+	mlx_hook(game->win, 17, 1L << 19, &cross_event, game);
 	// mlx_set_font(game->mlx, game->win,
 	// 	"-sony-fixed-medium-r-normal--24-170-100-100-c-120-iso8859-1");
 }
