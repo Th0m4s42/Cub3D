@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/20 13:04:04 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/21 10:57:50 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,9 @@ int	main(int ac, char **av, char **envp)
 	init_game(&game);
 	ft_parsing(&game, *av);
 	print_visual_value(game.visual, game.map);
+	init_player(&game);
 	init_key_event(&game);
 	mlx_loop(game.mlx);
-	// ft_free_game(&game);
+	ft_free_game(&game);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/20 12:45:42 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/21 10:59:25 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@
 
 typedef struct s_player
 {
-	double	x;
-	double	y;
-	double	dirx;
-	double	diry;
+	int	x;
+	int	y;
+	int	dirx;
+	int	diry;
 }	t_player;
 
 typedef struct s_visual
@@ -144,6 +144,8 @@ void	put_pixel(t_game *game, int x, int y, int color);
 /*******************************GAME*******************************************/
 
 /*	player.c	*/
+void		init_player(t_game *game);
+t_player	player_start(char **map);
 
 /*******************************KEY EVENT**************************************/
 
