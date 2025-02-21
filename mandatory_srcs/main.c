@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/21 10:57:50 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/21 14:21:27 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,17 @@ static void	init_mlx(t_game *game)
 	if (game->win == NULL)
 	{
 		ft_putstr_fd("Error\nmlx_new_window failed\n", 2);
+		ft_free_game(game);
 		exit(1);
 	}
-	game->img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
-	if (game->img == NULL)
+	game->key_img.img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
+	if (game->key_img.img == NULL)
 	{
 		ft_putstr_fd("Error\nmlx_new_image failed\n", 2);
 		exit(1);
 	}
-	game->addr = mlx_get_data_addr(game->img, &game->bpp, &game->size_line, &game->endian);
-	mlx_put_image_to_window(game->mlx, game->win, game->img, 0, 0);
+	game->key_img.addr = mlx_get_data_addr(game->key_img.img, &game->key_img.bpp, &game->key_img.size_line, &game->key_img.endian);
+	mlx_put_image_to_window(game->mlx, game->win, game->key_img.img, 0, 0);
 }
 
 static void	init_game(t_game *game)
@@ -87,7 +88,7 @@ int	main(int ac, char **av, char **envp)
 		return (1);
 	init_game(&game);
 	ft_parsing(&game, *av);
-	print_visual_value(game.visual, game.map);
+	// print_visual_value(game.visual, game.map);
 	init_player(&game);
 	init_key_event(&game);
 	mlx_loop(game.mlx);

@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/21 13:35:16 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/21 14:02:56 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,18 +80,30 @@ typedef struct s_visual
 	int		cell_b;
 }	t_visual;
 
+typedef struct	s_img
+{
+	int		bpp;
+	int		size_line;
+	int		endian;
+	char	*addr;
+	void	*img;
+}	t_img;
+
 typedef struct s_game
 {
 	t_visual	visual;
 	char		**map;
 	t_player	player;
-	int			bpp;
-	int			size_line;
-	int			endian;
-	char		*addr;
+	t_img		key_img;
+	// t_img		mini_map;
+	// int			bpp;
+	// int			size_line;
+	// int			endian;
+	// char		*addr;
+	// void		*img;
+	// t_xvar		var_mlx;
 	void		*mlx;
 	void		*win;
-	void		*img;
 }	t_game;
 
 typedef bool	(*t_array)(t_game *game, char *line);
@@ -144,7 +156,7 @@ void	print_visual_value(t_visual visual, char **map);// in check id file
 /*******************************RAYCASTING*************************************/
 
 /*	put_pixel.c	*/
-void	put_pixel(t_game *game, int x, int y, int color);
+// void	put_pixel(t_game *game, int x, int y, int color);
 
 /*******************************GAME*******************************************/
 

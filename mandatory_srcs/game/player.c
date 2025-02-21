@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 11:30:09 by thbasse           #+#    #+#             */
-/*   Updated: 2025/02/21 12:23:11 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/21 13:39:48 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,8 @@ void	init_player(t_game *game)
 		game->player.dirx += 1;
 	else if(game->map[game->player.y][game->player.x] == 'W')
 		game->player.dirx -= 1;
+	game->player.key_up = false;
+	game->player.key_down = false;
+	game->player.key_right = false;
+	game->player.key_left = false;
 }
