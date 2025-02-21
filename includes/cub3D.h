@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/21 10:59:25 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/21 13:35:16 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@
 //	KEY EVENT	//
 # define ESC_KEY 65307
 # define KEY_LEFT 65361
-# define KEY_UP 65362
+// # define KEY_UP 65362
 # define KEY_RIGHT 65363
-# define KEY_DOWN 65364
+// # define KEY_DOWN 65364
 # define KEY_W 119
 # define KEY_A 97
 # define KEY_S 115
@@ -55,6 +55,11 @@ typedef struct s_player
 	int	y;
 	int	dirx;
 	int	diry;
+
+	bool	key_up;
+	bool	key_down;
+	bool	key_right;
+	bool	key_left;
 }	t_player;
 
 typedef struct s_visual
