@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/24 14:46:23 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/24 16:42:44 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	main(int ac, char **av, char **envp)
 	// print_visual_value(game.visual, game.map);
 	init_player(&game);
 	init_key_event(&game);
-	mlx_loop_hook(game.mlx, draw_wall, NULL);
+	mlx_loop_hook(game.mlx, draw_wall, &game);
 	mlx_loop(game.mlx);
 	ft_free_game(&game);
 	return (0);
