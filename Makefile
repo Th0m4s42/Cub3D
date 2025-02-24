@@ -42,9 +42,11 @@ SRCS := \
 	\
 	$(SRC_DIR)$(EXIT)free_visuals.c \
 	\
-	$(SRC_DIR)$(RAYCASTING)put_pixel.c \
+	$(SRC_DIR)$(RAYCASTING)DDA.c \
 	\
 	$(SRC_DIR)$(GAME)player.c \
+	$(SRC_DIR)$(GAME)put_pixel.c \
+	$(SRC_DIR)$(GAME)draw_game.c \
 	\
 	$(SRC_DIR)$(KEY_EVENT)key_event.c \
 	\

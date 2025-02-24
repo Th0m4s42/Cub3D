@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/24 08:42:16 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/24 12:41:35 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,28 @@ typedef struct	s_img
 	void	*img;
 }	t_img;
 
+typedef struct s_ray
+{
+	float	camerax;		// Position X sur le plan caméra (-1 à 1)
+	float	raydirx;		// Direction du rayon en X
+	float	raydiry;		// Direction du rayon en Y
+
+	int		mapx;			// Position X actuelle sur la grille
+	int		mapy;			// Position Y actuelle sur la grille
+
+	float	sidedistx;		// Distance parcourue dans X avant de rencontrer une ligne de grille
+	float	sidedisty;		// Distance parcourue dans Y avant de rencontrer une ligne de grille
+
+	float	deltadistx;		// Distance entre deux lignes de grille en X
+	float	deltadisty;		// Distance entre deux lignes de grille en Y
+	float	perpwalldist;	// Distance perpendiculaire à la caméra (corrige la distorsion)
+
+	int		stepx;			// Direction du pas en X (+1 ou -1)
+	int		stepy;			// Direction du pas en Y (+1 ou -1)
+	int		hit;			// 1 si un mur est touché, sinon 0
+	int		side; 			// 0 = mur vertical, 1 = mur horizontal
+}	t_ray;
+
 typedef struct s_game
 {
 	t_visual	visual;
@@ -157,14 +179,17 @@ void	print_visual_value(t_visual visual, char **map);// in check id file
 
 /*******************************RAYCASTING*************************************/
 
-/*	put_pixel.c	*/
-// void	put_pixel(t_game *game, int x, int y, int color);
+t_ray	init_ray(t_game *game);
+void	dda(t_ray *ray, t_game *game);
 
 /*******************************GAME*******************************************/
 
 /*	player.c	*/
 void		init_player(t_game *game);
 t_player	player_start(char **map);
+void		put_pixel(t_game *game, int x, int y, int color);
+void		draw_line(t_game *game, int start, int end, int x, int color);
+
 
 /*******************************KEY EVENT**************************************/
 
