@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/24 12:54:28 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/24 13:22:44 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,16 +117,13 @@ typedef struct s_ray
 typedef struct s_game
 {
 	t_visual	visual;
+	void		*north;
+	void		*south;
+	void		*west;
+	void		*east;
 	char		**map;
 	t_player	player;
 	t_img		key_img;
-	// t_img		mini_map;
-	// int			bpp;
-	// int			size_line;
-	// int			endian;
-	// char		*addr;
-	// void		*img;
-	// t_xvar		var_mlx;
 	void		*mlx;
 	void		*win;
 }	t_game;
