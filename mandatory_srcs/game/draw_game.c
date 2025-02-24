@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:29:38 by thbasse           #+#    #+#             */
-/*   Updated: 2025/02/24 16:44:22 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/24 17:06:45 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	draw_wall(t_game *game, int x)
 
 	ray = init_ray(game);
 	line_height = (int)(HEIGHT / ray.perpwalldist);
+	// printf("line_height = %d\n", line_height);
 	draw_start = -line_height / 2 + HEIGHT / 2;
 	if (draw_start < 0)
 		draw_start = 0;
@@ -54,6 +55,6 @@ int	draw_wall(t_game *game, int x)
 		color = 0x00FF00; // Green for x-side walls
 	(void)color;
 
-	draw_line(game, draw_start, draw_end, x, color);
+	// draw_line(game, draw_start, draw_end, x, color);
 	return (0);
 }

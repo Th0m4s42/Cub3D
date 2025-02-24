@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:03:07 by thbasse           #+#    #+#             */
-/*   Updated: 2025/02/24 16:43:40 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/24 17:05:37 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_ray	init_ray(t_game *game)
 	ray.deltadistx = fabs(1 / ray.raydirx);
 	ray.deltadisty = fabs(1 / ray.raydiry);
 	ray.hit = 0;
+	// ray.perpwalldist non initialisé;
 	return (ray);
 }
 
