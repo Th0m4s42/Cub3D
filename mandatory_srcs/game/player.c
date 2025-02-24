@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 11:30:09 by thbasse           #+#    #+#             */
-/*   Updated: 2025/02/24 11:25:00 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/24 12:55:51 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,6 @@ void	init_player(t_game *game)
 	game->player.key_down = false;
 	game->player.key_right = false;
 	game->player.key_left = false;
+	game->player.camera_left = false;
+	game->player.camera_right = false;
 }
