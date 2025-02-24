@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/21 14:02:56 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/24 08:42:16 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,12 @@
 
 typedef struct s_player
 {
-	int	x;
-	int	y;
-	int	dirx;
-	int	diry;
+	float	x;
+	float	y;
+	float	dirx;
+	float	diry;
+	float	planex;
+	float	planey;
 
 	bool	key_up;
 	bool	key_down;

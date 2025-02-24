@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 11:30:09 by thbasse           #+#    #+#             */
-/*   Updated: 2025/02/21 13:39:48 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/24 08:56:57 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,29 +27,31 @@ t_player	player_start(char **map)
 			if (map[y][x] == 'N' || map[y][x] == 'S'
 				|| map[y][x] == 'E' || map[y][x] == 'W')
 				{
-					player.x = x;
-					player.y = y;
+					player.x = (float)x;
+					player.y = (float)y;
 				}
 				x++;
 			}
 			y++;
 		}
-	player.dirx = 0;
-	player.diry = 0;
+	player.dirx = 0.0;
+	player.diry = 0.0;
 	return (player);
 }
 
 void	init_player(t_game *game)
 {
 	game->player = player_start(game->map);
-	if(game->map[game->player.y][game->player.x] == 'N')
+	if(game->map[(int)game->player.y][(int)game->player.x] == 'N')
 		game->player.diry -= 1;
-	else if(game->map[game->player.y][game->player.x] == 'S')
+	else if(game->map[(int)game->player.y][(int)game->player.x] == 'S')
 		game->player.diry += 1;
-	else if(game->map[game->player.y][game->player.x] == 'E')
+	else if(game->map[(int)game->player.y][(int)game->player.x] == 'E')
 		game->player.dirx += 1;
-	else if(game->map[game->player.y][game->player.x] == 'W')
+	else if(game->map[(int)game->player.y][(int)game->player.x] == 'W')
 		game->player.dirx -= 1;
+	game->player.planex = 0.0;
+	game->player.planey = 0.66;
 	game->player.key_up = false;
 	game->player.key_down = false;
 	game->player.key_right = false;

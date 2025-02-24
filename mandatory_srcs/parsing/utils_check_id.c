@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:35:24 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/21 08:52:06 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/24 07:38:50 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	print_visual_value(t_visual visual, char **map)
 		for (int i = 0; map[i]; i++) {
 			printf("%s", map[i]);
 		};
-		printf("\n");	
+		printf("\n");
 	}
 	else
 		printf("No map\n");
