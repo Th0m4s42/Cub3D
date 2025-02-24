@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/24 13:22:44 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/24 14:45:38 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,7 +187,7 @@ void		init_player(t_game *game);
 t_player	player_start(char **map);
 void		put_pixel(t_game *game, int x, int y, int color);
 void		draw_line(t_game *game, int start, int end, int x, int color);
-
+int			draw_wall(t_game *game, int x);
 
 /*******************************KEY EVENT**************************************/
 
