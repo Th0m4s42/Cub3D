@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/24 14:45:38 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/25 08:55:00 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,7 @@ void	print_visual_value(t_visual visual, char **map);// in check id file
 
 /*******************************RAYCASTING*************************************/
 
-t_ray	init_ray(t_game *game);
+t_ray	init_ray(t_game *game, int x);
 void	dda(t_ray *ray, t_game *game);
 
 /*******************************GAME*******************************************/
@@ -187,7 +187,7 @@ void		init_player(t_game *game);
 t_player	player_start(char **map);
 void		put_pixel(t_game *game, int x, int y, int color);
 void		draw_line(t_game *game, int start, int end, int x, int color);
-int			draw_wall(t_game *game, int x);
+int			draw_wall(t_game *game);
 
 /*******************************KEY EVENT**************************************/
 
