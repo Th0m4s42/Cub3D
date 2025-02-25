@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DDA.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:03:07 by thbasse           #+#    #+#             */
-/*   Updated: 2025/02/24 17:05:37 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/25 07:37:14 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ t_ray	init_ray(t_game *game)
 	ray.deltadistx = fabs(1 / ray.raydirx);
 	ray.deltadisty = fabs(1 / ray.raydiry);
 	ray.hit = 0;
-	// ray.perpwalldist non initialisé;
+	ray.perpwalldist = 0;
+	ray.side = 0;
 	return (ray);
 }
 
