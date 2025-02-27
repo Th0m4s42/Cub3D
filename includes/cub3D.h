@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/25 08:55:00 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/27 14:38:36 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 
 # define WIDTH 1080
 # define HEIGHT 520
+# define WIDTH_MAP 150
+# define HEIGHT_MAP 80
 # define BLOCK_SIZE 64
 # define MOVE_SPEED 0.1
 # define ROTATE_SPEED 0.1
@@ -124,6 +126,7 @@ typedef struct s_game
 	char		**map;
 	t_player	player;
 	t_img		key_img;
+	t_img		map_img;
 	void		*mlx;
 	void		*win;
 }	t_game;
@@ -185,7 +188,7 @@ void	dda(t_ray *ray, t_game *game);
 /*	player.c	*/
 void		init_player(t_game *game);
 t_player	player_start(char **map);
-void		put_pixel(t_game *game, int x, int y, int color);
+void		put_pixel(t_img *img, int x, int y, int color);
 void		draw_line(t_game *game, int start, int end, int x, int color);
 int			draw_wall(t_game *game);
 

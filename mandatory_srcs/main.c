@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/25 08:36:37 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/27 14:38:50 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,14 @@ static void	init_mlx(t_game *game)
 		exit(1);
 	}
 	game->key_img.img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
+	game->map_img.img = mlx_new_image(game->mlx, WIDTH_MAP, HEIGHT_MAP);
 	if (game->key_img.img == NULL)
 	{
 		ft_putstr_fd("Error\nmlx_new_image failed\n", 2);
 		exit(1);
 	}
 	game->key_img.addr = mlx_get_data_addr(game->key_img.img, &game->key_img.bpp, &game->key_img.size_line, &game->key_img.endian);
+	game->map_img.addr = mlx_get_data_addr(game->map_img.img, &game->map_img.bpp, &game->map_img.size_line, &game->map_img.endian);
 	mlx_put_image_to_window(game->mlx, game->win, game->key_img.img, 0, 0);
 }
 

@@ -3,32 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   draw_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:29:38 by thbasse           #+#    #+#             */
-/*   Updated: 2025/02/25 08:54:40 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/27 14:45:08 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
 
-void	put_pixel(t_game *game, int x, int y, int color)
+void	put_pixel(t_img *img, int x, int y, int color)
 {
 	int	index;
 
-	index = y * game->key_img.size_line + x * game->key_img.bpp / 8;
-	game->key_img.addr[index] = color & 0xFF;
-	game->key_img.addr[index + 1] = (color >> 8) & 0xFF;
-	game->key_img.addr[index + 2] = (color >> 16) & 0xFF;
+	index = y * img->size_line + x * img->bpp / 8;
+	img->addr[index] = color & 0xFF;
+	img->addr[index + 1] = (color >> 8) & 0xFF;
+	img->addr[index + 2] = (color >> 16) & 0xFF;
 }
 
 void	draw_line(t_game *game, int start, int end, int x, int color)
 {
 	while (start < end)
 	{
-		put_pixel(game, x, start, color);
+		put_pixel(&game->key_img, x, start, color);
 		start++;
 	}
+}
+
+void	map_to_img(t_game *game)
+{
+	int	start = 0;
+	int	x = 0;
+	while (x < WIDTH_MAP)
+	{
+		start = 0;
+		while (start < HEIGHT_MAP)
+		{
+			// put_pixel(&game->map_img, x, start, 0xFF0000);
+			put_pixel(&game->map_img, x, start, 0xFFFF00);
+			start++;
+		}
+		x++;
+	}
+	// draw_
 }
 
 int	draw_wall(t_game *game)
@@ -59,6 +77,8 @@ int	draw_wall(t_game *game)
 		draw_line(game, draw_start, draw_end, x, color);
 		x++;
 	}
+	map_to_img(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->key_img.img, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->win, game->map_img.img, 10, 10);
 	return (0);
 }
