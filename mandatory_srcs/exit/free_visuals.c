@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_visuals.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 07:40:55 by thbasse           #+#    #+#             */
-/*   Updated: 2025/02/21 14:24:03 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/02/28 10:38:32 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	ft_free_game(t_game *game)
 {
 	if (game->key_img.img != NULL)
 		mlx_destroy_image(game->mlx, game->key_img.img);
+	if (game->map_img.img != NULL)
+		mlx_destroy_image(game->mlx, game->map_img.img);
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);

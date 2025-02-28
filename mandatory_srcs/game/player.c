@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 11:30:09 by thbasse           #+#    #+#             */
-/*   Updated: 2025/02/25 09:51:19 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/02/28 14:04:12 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,22 @@ t_player	player_start(char **map)
 void	init_player(t_game *game)
 {
 	game->player = player_start(game->map);
-	if(game->map[(int)game->player.y][(int)game->player.x] == 'N')
+	if(game->map[(int)game->player.y][(int)game->player.x] == 'W')
 	{
 		game->player.diry -= 1;
 		game->player.planex = 0.66;
 	}
-	else if(game->map[(int)game->player.y][(int)game->player.x] == 'S')
+	else if(game->map[(int)game->player.y][(int)game->player.x] == 'E')
 	{
 		game->player.diry += 1;
 		game->player.planex = -0.66;
 	}
-	else if(game->map[(int)game->player.y][(int)game->player.x] == 'E')
+	else if(game->map[(int)game->player.y][(int)game->player.x] == 'S')
 	{
 		game->player.dirx += 1;
 		game->player.planey = 0.66;
 	}
-	else if(game->map[(int)game->player.y][(int)game->player.x] == 'W')
+	else if(game->map[(int)game->player.y][(int)game->player.x] == 'N')
 	{
 		game->player.dirx -= 1;
 		game->player.planey = -0.66;

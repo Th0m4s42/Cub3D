@@ -6,7 +6,7 @@
 /*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:29:38 by thbasse           #+#    #+#             */
-/*   Updated: 2025/02/27 14:45:08 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/02/28 14:03:19 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,34 @@ void	draw_line(t_game *game, int start, int end, int x, int color)
 	}
 }
 
+static bool	check_wall_map(t_player *player, char **map, int width, int height)
+{
+	int	x_pl;
+	int	y_pl;
+	int	pos_x;
+	int	pos_y;
+
+	x_pl = player->x;
+	y_pl = player->y;
+	/*-----------------------*/
+	if (width < (WIDTH_MAP / 2))
+		pos_x = x_pl - (width / 10);
+	else
+		pos_x = x_pl + (width / 10);
+	/*-----------------------*/
+	if (height < (HEIGHT_MAP / 2))
+		pos_y = y_pl - (height / 2);
+	else
+		pos_y = y_pl + (height / 2);
+	/*-----------------------*/
+	if (pos_x > 9 || pos_y > 9)
+		return (false);
+	// printf("x = %d, y = %d\n", pos_x, pos_y);
+	if (pos_y < 0 || pos_y < 0 || map[pos_y][pos_x] == ' ' || map[pos_y][pos_x] == '1')
+		return (false);
+	return (true);
+}
+
 void	map_to_img(t_game *game)
 {
 	int	start = 0;
@@ -40,13 +68,14 @@ void	map_to_img(t_game *game)
 		start = 0;
 		while (start < HEIGHT_MAP)
 		{
-			// put_pixel(&game->map_img, x, start, 0xFF0000);
-			put_pixel(&game->map_img, x, start, 0xFFFF00);
+			if (check_wall_map(&game->player, game->map, x, start) == true)
+				put_pixel(&game->map_img, x, start, 0x0000FF);
+			else
+				put_pixel(&game->map_img, x, start, 0xFFFF00);
 			start++;
 		}
 		x++;
 	}
-	// draw_
 }
 
 int	draw_wall(t_game *game)
@@ -77,7 +106,7 @@ int	draw_wall(t_game *game)
 		draw_line(game, draw_start, draw_end, x, color);
 		x++;
 	}
-	map_to_img(game);
+	// map_to_img(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->key_img.img, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->win, game->map_img.img, 10, 10);
 	return (0);
