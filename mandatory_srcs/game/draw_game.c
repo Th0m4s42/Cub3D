@@ -6,7 +6,7 @@
 /*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:29:38 by thbasse           #+#    #+#             */
-/*   Updated: 2025/02/28 14:03:19 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/02/28 14:27:41 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ static bool	check_wall_map(t_player *player, char **map, int width, int height)
 	x_pl = player->x;
 	y_pl = player->y;
 	/*-----------------------*/
+	printf("%d\n", WIDTH_MAP / 2);
 	if (width < (WIDTH_MAP / 2))
-		pos_x = x_pl - (width / 10);
+		pos_x = x_pl - (width / 10); //CEST PAS LE BON CALCUL PUTIN, des bisous
 	else
 		pos_x = x_pl + (width / 10);
 	/*-----------------------*/
@@ -51,10 +52,14 @@ static bool	check_wall_map(t_player *player, char **map, int width, int height)
 	else
 		pos_y = y_pl + (height / 2);
 	/*-----------------------*/
-	if (pos_x > 9 || pos_y > 9)
+	if (pos_x >= 10 || pos_y >= 10)
 		return (false);
+	// for (int i = 0; map[i]; i++) {
+	// 	printf("%d", i);
+	// }
+	// printf("\nlen tab = %d\n", ft_tablen(map));
 	// printf("x = %d, y = %d\n", pos_x, pos_y);
-	if (pos_y < 0 || pos_y < 0 || map[pos_y][pos_x] == ' ' || map[pos_y][pos_x] == '1')
+	if (pos_y < 0 || pos_x < 0 || map[pos_y][pos_x] == ' ' || map[pos_y][pos_x] == '1')
 		return (false);
 	return (true);
 }
@@ -69,9 +74,9 @@ void	map_to_img(t_game *game)
 		while (start < HEIGHT_MAP)
 		{
 			if (check_wall_map(&game->player, game->map, x, start) == true)
-				put_pixel(&game->map_img, x, start, 0x0000FF);
+				put_pixel(&game->map_img, x, start, 0x343434);
 			else
-				put_pixel(&game->map_img, x, start, 0xFFFF00);
+				put_pixel(&game->map_img, x, start, 0x999999);
 			start++;
 		}
 		x++;
@@ -108,6 +113,6 @@ int	draw_wall(t_game *game)
 	}
 	// map_to_img(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->key_img.img, 0, 0);
-	mlx_put_image_to_window(game->mlx, game->win, game->map_img.img, 10, 10);
+	// mlx_put_image_to_window(game->mlx, game->win, game->map_img.img, 10, 10);
 	return (0);
 }

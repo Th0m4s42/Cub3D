@@ -6,7 +6,7 @@
 /*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/27 14:38:36 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/02/28 14:11:22 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,5 +200,8 @@ int		cross_event(t_game *game);
 /*******************************EXIT*******************************************/
 
 void	ft_free_game(t_game *game);
+
+/*		POUBELLE	*/
+size_t	ft_tablen(char **tab);
 
 #endif

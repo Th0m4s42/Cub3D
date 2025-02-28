@@ -6,7 +6,7 @@
 /*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/28 13:50:17 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/02/28 14:20:26 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,8 @@ int	main(int ac, char **av, char **envp)
 	if (check_args(ac, ++av, envp) == false)
 		return (1);
 	init_game(&game);
-	ft_parsing(&game, *av);
+	if (ft_parsing(&game, *av) == false)
+		return (ft_free_game(&game), 0);
 	// print_visual_value(game.visual, game.map);
 	init_player(&game);
 	init_key_event(&game);
