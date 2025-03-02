@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/28 14:11:22 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/02 00:17:01 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@
 # define KEY_LEFT 97
 # define KEY_DOWN 115
 # define KEY_RIGHT 100
+# define KEY_P 112
+# define KEY_M 109
 
 ////////////////////////////////////////////////////////////////////////////////
 //								STRUCTURES									  //
@@ -65,6 +67,8 @@ typedef struct s_player
 
 	bool	camera_left;
 	bool	camera_right;
+
+	bool	key_map;
 }	t_player;
 
 typedef struct s_visual
@@ -191,6 +195,7 @@ t_player	player_start(char **map);
 void		put_pixel(t_img *img, int x, int y, int color);
 void		draw_line(t_game *game, int start, int end, int x, int color);
 int			draw_wall(t_game *game);
+void		draw_map(t_game *game);
 
 /*******************************KEY EVENT**************************************/
 

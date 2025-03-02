@@ -47,6 +47,7 @@ SRCS := \
 	\
 	$(SRC_DIR)$(GAME)player.c \
 	$(SRC_DIR)$(GAME)draw_game.c \
+	$(SRC_DIR)$(GAME)draw_map.c \
 	$(SRC_DIR)$(GAME)utils_game.c \
 	\
 	$(SRC_DIR)$(KEY_EVENT)key_event.c \

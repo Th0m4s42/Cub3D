@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:29:38 by thbasse           #+#    #+#             */
-/*   Updated: 2025/02/28 14:27:41 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/02 00:31:01 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,58 +31,6 @@ void	draw_line(t_game *game, int start, int end, int x, int color)
 	}
 }
 
-static bool	check_wall_map(t_player *player, char **map, int width, int height)
-{
-	int	x_pl;
-	int	y_pl;
-	int	pos_x;
-	int	pos_y;
-
-	x_pl = player->x;
-	y_pl = player->y;
-	/*-----------------------*/
-	printf("%d\n", WIDTH_MAP / 2);
-	if (width < (WIDTH_MAP / 2))
-		pos_x = x_pl - (width / 10); //CEST PAS LE BON CALCUL PUTIN, des bisous
-	else
-		pos_x = x_pl + (width / 10);
-	/*-----------------------*/
-	if (height < (HEIGHT_MAP / 2))
-		pos_y = y_pl - (height / 2);
-	else
-		pos_y = y_pl + (height / 2);
-	/*-----------------------*/
-	if (pos_x >= 10 || pos_y >= 10)
-		return (false);
-	// for (int i = 0; map[i]; i++) {
-	// 	printf("%d", i);
-	// }
-	// printf("\nlen tab = %d\n", ft_tablen(map));
-	// printf("x = %d, y = %d\n", pos_x, pos_y);
-	if (pos_y < 0 || pos_x < 0 || map[pos_y][pos_x] == ' ' || map[pos_y][pos_x] == '1')
-		return (false);
-	return (true);
-}
-
-void	map_to_img(t_game *game)
-{
-	int	start = 0;
-	int	x = 0;
-	while (x < WIDTH_MAP)
-	{
-		start = 0;
-		while (start < HEIGHT_MAP)
-		{
-			if (check_wall_map(&game->player, game->map, x, start) == true)
-				put_pixel(&game->map_img, x, start, 0x343434);
-			else
-				put_pixel(&game->map_img, x, start, 0x999999);
-			start++;
-		}
-		x++;
-	}
-}
-
 int	draw_wall(t_game *game)
 {
 	int	line_height;
@@ -93,26 +41,34 @@ int	draw_wall(t_game *game)
 	t_ray	ray;
 
 	x = 0;
-	while (x < WIDTH)
-	{
-		ray = init_ray(game, x);
-		dda(&ray, game);
-		line_height = (int)(HEIGHT / ray.perpwalldist);
-		draw_start = -line_height / 2 + HEIGHT / 2;
-		if (draw_start < 0)
-			draw_start = 0;
-		draw_end = line_height / 2 + HEIGHT / 2;
-		if (draw_end >= HEIGHT)
-			draw_end = HEIGHT - 1;
-		if (ray.side == 1)
-			color = 0xFF0000; // Red for y-side walls
-		else
-			color = 0x00FF00; // Green for x-side walls
-		draw_line(game, draw_start, draw_end, x, color);
-		x++;
-	}
-	// map_to_img(game);
+	if (game->player.key_up == true)
+		game->player.y -= 0.01;
+	if (game->player.key_down == true)
+		game->player.y += 0.01;
+	if (game->player.key_left == true)
+		game->player.x -= 0.01;
+	if (game->player.key_right == true)
+		game->player.x += 0.01;
+	// printf("player_X = %f, player_Y = %f\n", game->player.x, game->player.y);
+	// while (x < WIDTH)
+	// {
+	// 	ray = init_ray(game, x);
+	// 	dda(&ray, game);
+	// 	line_height = (int)(HEIGHT / ray.perpwalldist);
+	// 	draw_start = -line_height / 2 + HEIGHT / 2;
+	// 	if (draw_start < 0)
+	// 		draw_start = 0;
+	// 	draw_end = line_height / 2 + HEIGHT / 2;
+	// 	if (draw_end >= HEIGHT)
+	// 		draw_end = HEIGHT - 1;
+	// 	if (ray.side == 1)
+	// 		color = 0xFF0000; // Red for y-side walls
+	// 	else
+	// 		color = 0x00FF00; // Green for x-side walls
+	// 	draw_line(game, draw_start, draw_end, x, color);
+	// 	x++;
+	// }
 	mlx_put_image_to_window(game->mlx, game->win, game->key_img.img, 0, 0);
-	// mlx_put_image_to_window(game->mlx, game->win, game->map_img.img, 10, 10);
+	draw_map(game);// APPUIE SUR M !
 	return (0);
 }

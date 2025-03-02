@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 11:46:33 by curry-san         #+#    #+#             */
-/*   Updated: 2025/02/24 13:04:09 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/02 00:30:23 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@ int		key_press(int keycode, t_game *game)
 		game->player.key_down = true;
 	else if (keycode == KEY_RIGHT)
 		game->player.key_right = true;
+	else if (keycode == KEY_M && game->player.key_map == true)
+		game->player.key_map = false;
+	else if (keycode == KEY_M && game->player.key_map == false)
+		game->player.key_map = true;
+	if (keycode == KEY_P)
+	{
+		game->player.y = 3.9999;
+	}
+	
 	return (0);
 }
 
