@@ -14,3 +14,5 @@ check map							*DONE*
 TESTER JUSQUA LA MOOOOOORT			*en cours*
 
 Ca compile ?						CA COMPIIIILE !!!
+
+Mon mate est-il raciste??? (il exclue la couleur noire au parsing)
