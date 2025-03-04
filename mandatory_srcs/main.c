@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/02 00:26:19 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/04 16:47:56 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,6 @@
 	library (-lm man man 3 math)
 
 	• All functions of the MinilibX
-*/
-
-/*
-	PARSING:
-
-	int rgb_to_int(double r, double g, double b)
-	{
-    	int color = 0;
-    	color |= (int)(b * 255);
-    	color |= (int)(g * 255) << 8;
-    	color |= (int)(r * 255) << 16;
-    	return (color);
-	}
 */
 
 static void	init_mlx(t_game *game)

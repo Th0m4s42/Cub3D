@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:29:38 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/04 16:10:40 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/04 16:55:01 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,17 @@ void	draw_line(t_game *game, int start, int end, int x, int color)
 	}
 }
 
+static int rgb_to_int(int r, int g, int b)
+{
+	int color;
+	
+	color = 0;
+	color |= b * 255;
+	color |= (g * 255) << 8;
+	color |= (r * 255) << 16;
+	return (color);
+}
+
 static void	draw_floor_ceiling(t_game *game)
 {
 	int	x;
@@ -42,7 +53,7 @@ static void	draw_floor_ceiling(t_game *game)
 		x = 0;
 		while (x < WIDTH)
 		{
-			put_pixel(&game->key_img, x, y, 0);
+			put_pixel(&game->key_img, x, y, rgb_to_int(game->visual.cell_r, game->visual.cell_g, game->visual.cell_b));
 			x++;
 		}
 		y++;
@@ -53,7 +64,7 @@ static void	draw_floor_ceiling(t_game *game)
 		x = 0;
 		while (x < WIDTH)
 		{
-			put_pixel(&game->key_img, x, y, 0);
+			put_pixel(&game->key_img, x, y, rgb_to_int(game->visual.floor_r, game->visual.floor_g, game->visual.floor_b));
 			x++;
 		}
 		y++;
