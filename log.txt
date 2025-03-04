@@ -10,9 +10,14 @@ check des ID F et C					*DONE*
 check si TOUT les ID sont valider	*DONE*
 save map							*DONE*
 check map							*DONE*
+affichage du raycasting				*DONE*
 
+implementation des mouvements       *en cours*
+===>prendre en compte la direction
+    dans laquelle le joueur regarde *en cours*
+===>synchro avec la minimap         *en cours*
 TESTER JUSQUA LA MOOOOOORT			*en cours*
 
 Ca compile ?						CA COMPIIIILE !!!
 
-Mon mate est-il raciste??? (il exclue la couleur noire au parsing)
+Mon mate est-il raciste??? (il excluait la couleur noire au parsing)
