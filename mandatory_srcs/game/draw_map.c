@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 23:39:16 by curry-san         #+#    #+#             */
-/*   Updated: 2025/03/02 00:27:12 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/04 14:00:58 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 static void	draw_player(t_game *game)
 {
-	(void)game;//player utile quand on voudra le sens;
-	
 	int	x;
 	int	y;
 
-	y = 0;//(HEIGHT_MAP / 2) - 10;
-
+	(void)game;
+	y = 0;
 	while (y < 6)
 	{
 		x = 0;
 		while (x < 6)
 		{
-			put_pixel(&game->map_img, y + (WIDTH_MAP / 2) - 3, x + (HEIGHT_MAP / 2) - 3, 0xFF0000);
+			put_pixel(&game->map_img,
+				y + (WIDTH_MAP / 2) - 3, x + (HEIGHT_MAP / 2) - 3, 0xFF0000);
 			x++;
 		}
 		y++;
@@ -35,39 +34,40 @@ static void	draw_player(t_game *game)
 
 static bool	check_wall_map(t_player *player, char **map, int width, int height)
 {
-	int	x_pl;
-	int	y_pl;
-	int	pos_x;
-	int	pos_y;
+	float	x_pl;
+	float	y_pl;
+	float	pos_x;
+	float	pos_y;
 
 	x_pl = player->x;
 	y_pl = player->y;
-	/*-----------------------*/
-	if (width < (WIDTH_MAP / 2))
-		pos_x = x_pl - (((WIDTH_MAP / 2) - width) / 10); //CEST PAS LE BON CALCUL PUTIN, des bisous
+	if (width < (WIDTH_MAP / 2.0))
+		pos_x = x_pl - (((WIDTH_MAP / 2.0) - width) / 10.0);
 	else
-		pos_x = x_pl + ((width - (WIDTH_MAP / 2)) / 10);
-	/*-----------------------*/
-	if (height < (HEIGHT_MAP / 2))
-		pos_y = y_pl - (((HEIGHT_MAP / 2) - height) / 10);
+		pos_x = x_pl + ((width - (WIDTH_MAP / 2.0)) / 10.0);
+	if (height < (HEIGHT_MAP / 2.0))
+		pos_y = y_pl - (((HEIGHT_MAP / 2.0) - height) / 10.0);
 	else
-		pos_y = y_pl + ((height - (HEIGHT_MAP / 2)) / 10);
-	/*-----------------------*/
-	if (pos_y >= ft_tablen(map) || pos_x >= ft_strlen(map[pos_y]))
+		pos_y = y_pl + ((height - (HEIGHT_MAP / 2.0)) / 10.0);
+	if ((int)pos_y >= ft_tablen(map)
+		|| (int)pos_x >= ft_strlen(map[(int)pos_y]))
 		return (false);
-	if (!map[pos_y][pos_x] || map[pos_y][pos_x] == '\n')
-	return (false);
-	if (pos_y < 0 || pos_x < 0 || map[pos_y][pos_x] == ' ' || map[pos_y][pos_x] == '1')
+	if (!map[(int)pos_y][(int)pos_x] || map[(int)pos_y][(int)pos_x] == '\n')
+		return (false);
+	if (pos_y < 0 || pos_x < 0 || map[(int)pos_y][(int)pos_x] == ' '
+			|| map[(int)pos_y][(int)pos_x] == '1')
 		return (false);
 	return (true);
 }
 
 void	draw_map(t_game *game)
 {
-	int	start = 0;
-	int	x = 0;
+	int	start;
+	int	x;
+
 	if (game->player.key_map == false)
 		return ;
+	x = 0;
 	while (x < WIDTH_MAP)
 	{
 		start = 0;
