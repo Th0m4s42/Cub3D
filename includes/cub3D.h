@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 20:12:34 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/06 21:47:05 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,6 @@ typedef struct s_game
 	t_player	player;
 	t_img		key_img;
 	t_img		map_img;
-	t_img		test;
 	void		*mlx;
 	void		*win;
 }	t_game;
