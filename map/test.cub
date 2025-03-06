@@ -1,7 +1,7 @@
 NO ./textures/el_BG/bg_north.xpm
-SO les_gens_bizarre_qui_disent_chocolatine
-WE les_alcoolique_professionnel
-EA les_bonnes_frites
+SO ./textures/el_BG/bg_south.xpm
+WE ./textures/el_BG/bg_west.xpm
+EA ./textures/el_BG/bg_east.xpm
 
 F 1, 1, 1
 C 216, 216, 200

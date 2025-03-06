@@ -6,7 +6,7 @@
 /*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:41:11 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 13:22:34 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/06 13:49:49 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 static void	get_texture(t_game *game, t_tex *texture, char *path)
 {
-	printf("path = %s\n", path);
-	// texture->img = mlx_xpm_file_to_image(game->mlx, path, &texture->width, &texture->height);
+	if (game == NULL || texture == NULL || path == NULL || game->mlx == NULL)
+		printf("WHAT THE HELL IS HAPPENING HERE?\n");
+	texture->img = mlx_xpm_file_to_image(game->mlx, path,
+		&texture->width, &texture->height);
+	
 }
 
 bool	save_north(t_game *game, char *line)
@@ -36,10 +39,9 @@ bool	save_north(t_game *game, char *line)
 		return (false);
 	if (game->visual.north != NULL && ft_strlen(game->visual.north) == 0)
 		return (ft_putendl_fd("No path for NO identifier", 2), false);
-	get_texture(game, game->north, game->visual.north);
-	// game->north = mlx_xpm_file_to_image(game->visual.north, );
-	// if (game->north == NULL)
-		// return (ft_putendl_fd("Error north xpm file", 2), false);
+	get_texture(game, &game->north, game->visual.north);
+	if (game->north.img == NULL)
+		return (ft_putendl_fd("Error north xpm file", 2), false);
 	return (true);
 }
 
@@ -61,9 +63,9 @@ bool	save_south(t_game *game, char *line)
 		return (false);
 	if (game->visual.south != NULL && ft_strlen(game->visual.south) == 0)
 		return (ft_putendl_fd("No path for SO identifier", 2), false);
-	// game->south = mlx_xpm_file_to_image(game->visual.south);
-	// if (game->south == NULL)
-	// 	return (ft_putendl_fd("Error south xpm file", 2), false);
+	get_texture(game, &game->south, game->visual.south);
+	if (game->south.img == NULL)
+		return (ft_putendl_fd("Error south xpm file", 2), false);
 	return (true);
 }
 
@@ -85,9 +87,9 @@ bool	save_west(t_game *game, char *line)
 		return (false);
 	if (game->visual.west != NULL && ft_strlen(game->visual.west) == 0)
 		return (ft_putendl_fd("No path for WE identifier", 2), false);
-	// game->west = mlx_xpm_file_to_image(game->visual.west);
-	// if (game->west == NULL)
-	// 	return (ft_putendl_fd("Error west xpm file", 2), false);
+	get_texture(game, &game->west, game->visual.west);
+	if (game->west.img == NULL)
+		return (ft_putendl_fd("Error west xpm file", 2), false);
 	return (true);
 }
 
@@ -109,8 +111,8 @@ bool	save_east(t_game *game, char *line)
 		return (false);
 	if (game->visual.east != NULL && ft_strlen(game->visual.east) == 0)
 		return (ft_putendl_fd("No path for EA identifier", 2), false);
-	// game->east = mlx_xpm_file_to_image(game->visual.east);
-	// if (game->east == NULL)
-	// 	return (ft_putendl_fd("Error east xpm file", 2), false);
+	get_texture(game, &game->east, game->visual.east);
+	if (game->east.img == NULL)
+		return (ft_putendl_fd("Error east xpm file", 2), false);
 	return (true);
 }
