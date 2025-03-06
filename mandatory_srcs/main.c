@@ -6,7 +6,7 @@
 /*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 13:38:26 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/06 17:39:29 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,14 @@ static void	init_mlx(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->win, game->key_img.img, 0, 0);
 }
 
+static void	init_textures(t_game *game)
+{
+	game->north.img = NULL;
+	game->south.img = NULL;
+	game->west.img = NULL;
+	game->east.img = NULL;
+}
+
 static void	init_game(t_game *game)
 {
 	game->visual.north = NULL;
@@ -66,6 +74,7 @@ static void	init_game(t_game *game)
 	game->visual.cell_g = -1;
 	game->visual.cell_b = -1;
 	game->map = NULL;
+	init_textures(game);
 	init_mlx(game);
 }
 

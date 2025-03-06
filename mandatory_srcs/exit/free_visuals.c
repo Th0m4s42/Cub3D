@@ -6,7 +6,7 @@
 /*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 07:40:55 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/06 13:54:23 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/06 17:37:48 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,14 @@ static void	ft_free_visual(t_visual *visual)
 
 static void	ft_free_textures(t_game *game)
 {
-	mlx_destroy_image(game->mlx, game->north.img);
-	mlx_destroy_image(game->mlx, game->south.img);
-	mlx_destroy_image(game->mlx, game->west.img);
-	mlx_destroy_image(game->mlx, game->east.img);
+	if (game->north.img)
+		mlx_destroy_image(game->mlx, game->north.img);
+	if (game->south.img)
+		mlx_destroy_image(game->mlx, game->south.img);
+	if (game->west.img)
+		mlx_destroy_image(game->mlx, game->west.img);
+	if (game->east.img)
+		mlx_destroy_image(game->mlx, game->east.img);
 }
 
 void	ft_free_game(t_game *game)

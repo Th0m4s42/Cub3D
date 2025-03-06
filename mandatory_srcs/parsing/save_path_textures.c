@@ -6,7 +6,7 @@
 /*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:41:11 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 13:49:49 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/06 18:04:59 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static void	get_texture(t_game *game, t_tex *texture, char *path)
 {
 	if (game == NULL || texture == NULL || path == NULL || game->mlx == NULL)
 		printf("WHAT THE HELL IS HAPPENING HERE?\n");
+	printf("%s\n", path);
 	texture->img = mlx_xpm_file_to_image(game->mlx, path,
-		&texture->width, &texture->height);
-	
+			&texture->width, &texture->height);
 }
 
 bool	save_north(t_game *game, char *line)
@@ -37,6 +37,10 @@ bool	save_north(t_game *game, char *line)
 	game->visual.north = ft_substr(line, i, y - i);
 	if (game->visual.north == NULL)
 		return (false);
+	while (line[y] && in_charset(line[y], " \t\n") == true)
+		y++;
+	if (line[y])
+		return (ft_putendl_fd("Error: invalid syntax NO Identifier", 2), false);
 	if (game->visual.north != NULL && ft_strlen(game->visual.north) == 0)
 		return (ft_putendl_fd("No path for NO identifier", 2), false);
 	get_texture(game, &game->north, game->visual.north);
@@ -61,6 +65,10 @@ bool	save_south(t_game *game, char *line)
 	game->visual.south = ft_substr(line, i, y - i);
 	if (game->visual.south == NULL)
 		return (false);
+	while (line[y] && in_charset(line[y], " \t\n") == true)
+		y++;
+	if (line[y])
+		return (ft_putendl_fd("Error: invalid syntax SO Identifier", 2), false);
 	if (game->visual.south != NULL && ft_strlen(game->visual.south) == 0)
 		return (ft_putendl_fd("No path for SO identifier", 2), false);
 	get_texture(game, &game->south, game->visual.south);
@@ -85,6 +93,10 @@ bool	save_west(t_game *game, char *line)
 	game->visual.west = ft_substr(line, i, y - i);
 	if (game->visual.west == NULL)
 		return (false);
+	while (line[y] && in_charset(line[y], " \t\n") == true)
+		y++;
+	if (line[y])
+		return (ft_putendl_fd("Error: invalid syntax WE Identifier", 2), false);
 	if (game->visual.west != NULL && ft_strlen(game->visual.west) == 0)
 		return (ft_putendl_fd("No path for WE identifier", 2), false);
 	get_texture(game, &game->west, game->visual.west);
@@ -109,6 +121,10 @@ bool	save_east(t_game *game, char *line)
 	game->visual.east = ft_substr(line, i, y - i);
 	if (game->visual.east == NULL)
 		return (false);
+	while (line[y] && in_charset(line[y], " \t\n") == true)
+		y++;
+	if (line[y])
+		return (ft_putendl_fd("Error: invalid syntax EA Identifier", 2), false);
 	if (game->visual.east != NULL && ft_strlen(game->visual.east) == 0)
 		return (ft_putendl_fd("No path for EA identifier", 2), false);
 	get_texture(game, &game->east, game->visual.east);
