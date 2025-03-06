@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/04 16:47:56 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/06 13:38:26 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,6 @@ static void	init_game(t_game *game)
 	game->visual.cell_g = -1;
 	game->visual.cell_b = -1;
 	game->map = NULL;
-	game->north = NULL;
-	game->south = NULL;
-	game->west = NULL;
-	game->east = NULL;
 	init_mlx(game);
 }
 

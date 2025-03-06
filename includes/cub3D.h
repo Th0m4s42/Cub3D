@@ -6,7 +6,7 @@
 /*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 13:18:33 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/06 13:37:25 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,10 +131,10 @@ typedef struct s_ray
 typedef struct s_game
 {
 	t_visual	visual;
-	t_tex		*north;
-	t_tex		*south;
-	t_tex		*west;
-	t_tex		*east;
+	t_tex		north;
+	t_tex		south;
+	t_tex		west;
+	t_tex		east;
 	char		**map;
 	t_player	player;
 	t_img		key_img;
