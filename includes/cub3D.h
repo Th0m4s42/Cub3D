@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 13:37:25 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/06 20:12:34 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,11 @@ typedef struct	s_tex
 {
 	int		width;
 	int		height;
+	
+	int		bpp;
+	int		size_line;
+	int		endian;
+	
 	char	*addr;
 	void	*img;
 }	t_tex;
@@ -139,6 +144,7 @@ typedef struct s_game
 	t_player	player;
 	t_img		key_img;
 	t_img		map_img;
+	t_img		test;
 	void		*mlx;
 	void		*win;
 }	t_game;

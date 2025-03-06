@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 23:39:16 by curry-san         #+#    #+#             */
-/*   Updated: 2025/03/06 13:18:57 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/06 19:57:15 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	draw_player(t_game *game)
 	int	x;
 	int	y;
 
-	(void)game;
 	y = 0;
 	while (y < 6)
 	{

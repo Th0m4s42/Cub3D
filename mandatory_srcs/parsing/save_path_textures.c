@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   save_path_textures.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:41:11 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 18:04:59 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/06 20:11:02 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 static void	get_texture(t_game *game, t_tex *texture, char *path)
 {
-	if (game == NULL || texture == NULL || path == NULL || game->mlx == NULL)
-		printf("WHAT THE HELL IS HAPPENING HERE?\n");
-	printf("%s\n", path);
 	texture->img = mlx_xpm_file_to_image(game->mlx, path,
 			&texture->width, &texture->height);
+	if (texture->img == NULL)
+		return ;
+	texture->addr = mlx_get_data_addr(&texture->img, &texture->bpp,
+		&texture->size_line, &texture->endian);
 }
 
 bool	save_north(t_game *game, char *line)

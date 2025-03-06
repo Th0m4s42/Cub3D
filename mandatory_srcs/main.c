@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 17:39:29 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/06 20:14:49 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static void	init_mlx(t_game *game)
 	}
 	game->key_img.img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 	game->map_img.img = mlx_new_image(game->mlx, WIDTH_MAP, HEIGHT_MAP);
+	game->test.img = mlx_new_image(game->mlx, 100, 100);
 	if (game->key_img.img == NULL)
 	{
 		ft_putstr_fd("Error\nmlx_new_image failed\n", 2);
@@ -48,6 +49,7 @@ static void	init_mlx(t_game *game)
 	}
 	game->key_img.addr = mlx_get_data_addr(game->key_img.img, &game->key_img.bpp, &game->key_img.size_line, &game->key_img.endian);
 	game->map_img.addr = mlx_get_data_addr(game->map_img.img, &game->map_img.bpp, &game->map_img.size_line, &game->map_img.endian);
+	game->test.addr = mlx_get_data_addr(game->test.img, &game->test.bpp, &game->test.size_line, &game->test.endian);
 	mlx_put_image_to_window(game->mlx, game->win, game->key_img.img, 0, 0);
 }
 
