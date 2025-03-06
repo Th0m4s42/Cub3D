@@ -1,10 +1,10 @@
-NO ceux_qui_disent_pain_aux_chocolats
+NO ./textures/el_BG/bg_north.xpm
 SO les_gens_bizarre_qui_disent_chocolatine
 WE les_alcoolique_professionnel
 EA les_bonnes_frites
 
-F 0, 0, 0
-C 216, 216, 7
+F 1, 1, 1
+C 216, 216, 200
 
 1111111111111111111
 1000000000000000001

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 08:27:11 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/06 13:18:33 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,14 @@ typedef struct	s_img
 	void	*img;
 }	t_img;
 
+typedef struct	s_tex
+{
+	int		width;
+	int		height;
+	char	*addr;
+	void	*img;
+}	t_tex;
+
 typedef struct s_ray
 {
 	float	camerax;		// Position X sur le plan caméra (-1 à 1)
@@ -123,10 +131,10 @@ typedef struct s_ray
 typedef struct s_game
 {
 	t_visual	visual;
-	void		*north;
-	void		*south;
-	void		*west;
-	void		*east;
+	t_tex		*north;
+	t_tex		*south;
+	t_tex		*west;
+	t_tex		*east;
 	char		**map;
 	t_player	player;
 	t_img		key_img;

@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   save_path_textures.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:41:11 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/02/24 14:44:29 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/06 13:22:34 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
+
+static void	get_texture(t_game *game, t_tex *texture, char *path)
+{
+	printf("path = %s\n", path);
+	// texture->img = mlx_xpm_file_to_image(game->mlx, path, &texture->width, &texture->height);
+}
 
 bool	save_north(t_game *game, char *line)
 {
@@ -30,9 +36,10 @@ bool	save_north(t_game *game, char *line)
 		return (false);
 	if (game->visual.north != NULL && ft_strlen(game->visual.north) == 0)
 		return (ft_putendl_fd("No path for NO identifier", 2), false);
-	// game->north = mlx_xpm_file_to_image(game->visual.north);
+	get_texture(game, game->north, game->visual.north);
+	// game->north = mlx_xpm_file_to_image(game->visual.north, );
 	// if (game->north == NULL)
-	// 	return (ft_putendl_fd("Error north xpm file", 2), false);
+		// return (ft_putendl_fd("Error north xpm file", 2), false);
 	return (true);
 }
 
