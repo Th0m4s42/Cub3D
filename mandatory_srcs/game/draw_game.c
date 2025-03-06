@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:29:38 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/04 17:05:57 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/06 08:28:13 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,13 @@ int	draw_wall(t_game *game)
 
 	x = 0;
 	if (game->player.key_up == true)
-		game->player.y -= 0.01;
+		w_key(game);
 	if (game->player.key_down == true)
-		game->player.y += 0.01;
+		s_key(game);
 	if (game->player.key_left == true)
-		game->player.x -= 0.01;
+		a_key(game);
 	if (game->player.key_right == true)
-		game->player.x += 0.01;
+		d_key(game);
 	// printf("player_X = %f, player_Y = %f\n", game->player.x, game->player.y);
 	draw_floor_ceiling(game);
 	while (x < WIDTH)

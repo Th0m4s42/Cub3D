@@ -51,6 +51,7 @@ SRCS := \
 	$(SRC_DIR)$(GAME)utils_game.c \
 	\
 	$(SRC_DIR)$(KEY_EVENT)key_event.c \
+	$(SRC_DIR)$(KEY_EVENT)movements.c \
 	\
 
 LIBFT_DIR := libft/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/02 00:17:01 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/06 08:27:11 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 # define WIDTH_MAP 150
 # define HEIGHT_MAP 80
 # define BLOCK_SIZE 64
-# define MOVE_SPEED 0.1
-# define ROTATE_SPEED 0.1
+# define MOVE_SPEED 0.01
+# define ROTATE_SPEED 0.01
 # define PI 3.14159265359
 
 //	KEY EVENT	//
@@ -201,6 +201,13 @@ void		draw_map(t_game *game);
 
 void	init_key_event(t_game *game);
 int		cross_event(t_game *game);
+
+/********************************MOVEMENTS*************************************/
+
+void	w_key(t_game *game);
+void	s_key(t_game *game);
+void	a_key(t_game *game);
+void	d_key(t_game *game);
 
 /*******************************EXIT*******************************************/
 
