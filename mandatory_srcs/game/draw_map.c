@@ -6,7 +6,7 @@
 /*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 23:39:16 by curry-san         #+#    #+#             */
-/*   Updated: 2025/03/04 14:00:58 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/06 13:18:57 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ static bool	check_wall_map(t_player *player, char **map, int width, int height)
 		pos_y = y_pl - (((HEIGHT_MAP / 2.0) - height) / 10.0);
 	else
 		pos_y = y_pl + ((height - (HEIGHT_MAP / 2.0)) / 10.0);
-	if ((int)pos_y >= ft_tablen(map)
-		|| (int)pos_x >= ft_strlen(map[(int)pos_y]))
+	if ((size_t)pos_y >= ft_tablen(map)
+		|| (size_t)pos_x >= ft_strlen(map[(int)pos_y]))
 		return (false);
 	if (!map[(int)pos_y][(int)pos_x] || map[(int)pos_y][(int)pos_x] == '\n')
 		return (false);
