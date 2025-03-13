@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:03:07 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/10 16:11:42 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/13 12:42:53 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,22 @@ t_ray	init_ray(t_game *game, int x)
 	if (ray.raydirx < 0)
 	{
 		ray.stepx = -1;
-		ray.sidedistx = (ray.mapx - game->player.x) * ray.deltadistx;
+		ray.sidedistx = (game->player.x - ray.mapx) * ray.deltadistx;
 	}
 	else
 	{
 		ray.stepx = 1;
-		ray.sidedistx = (game->player.x + 1.0 - ray.mapx) * ray.deltadistx;
+		ray.sidedistx = (ray.mapx + 1.0 - game->player.x) * ray.deltadistx;
 	}
 	if (ray.raydiry < 0)
 	{
 		ray.stepy = -1;
-		ray.sidedisty = (ray.mapy - game->player.y) * ray.deltadisty;
+		ray.sidedisty = (game->player.y - ray.mapy) * ray.deltadisty;
 	}
 	else
 	{
 		ray.stepy = 1;
-		ray.sidedisty = (game->player.y + 1.0 - ray.mapy) * ray.deltadisty;
+		ray.sidedisty = (ray.mapy + 1.0 - game->player.y) * ray.deltadisty;
 	}
 	return (ray);
 }
