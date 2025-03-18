@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 21:47:05 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/18 16:33:52 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define WIDTH_MAP 150
 # define HEIGHT_MAP 80
 # define BLOCK_SIZE 64
-# define MOVE_SPEED 0.01
+# define MOVE_SPEED 0.15
 # define ROTATE_SPEED 0.01
 # define PI 3.14159265359
 

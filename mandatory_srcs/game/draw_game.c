@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:29:38 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/10 15:41:05 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/18 16:34:47 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,15 +81,6 @@ int	draw_wall(t_game *game)
 	t_ray	ray;
 
 	x = 0;
-	if (game->player.key_up == true)
-		w_key(game);
-	if (game->player.key_down == true)
-		s_key(game);
-	if (game->player.key_left == true)
-		a_key(game);
-	if (game->player.key_right == true)
-		d_key(game);
-	// printf("player_X = %f, player_Y = %f\n", game->player.x, game->player.y);
 	draw_floor_ceiling(game);
 	while (x < WIDTH)
 	{
@@ -110,6 +101,14 @@ int	draw_wall(t_game *game)
 		x++;
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->key_img.img, 0, 0);
+	if (game->player.key_up == true)
+		w_key(game);
+	if (game->player.key_down == true)
+		s_key(game);
+	if (game->player.key_left == true)
+		a_key(game);
+	if (game->player.key_right == true)
+		d_key(game);
 	draw_map(game);// APPUIE SUR M !
 	return (0);
 }
