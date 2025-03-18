@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 11:30:09 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/18 17:29:40 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/18 17:38:01 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ void	init_player(t_game *game)
 	else if(game->map[(int)game->player.y][(int)game->player.x] == 'S')
 	{
 		game->player.diry = -1;
-		game->player.planey = 0.66;
+		game->player.planey = -0.66;
 	}
 	else if(game->map[(int)game->player.y][(int)game->player.x] == 'N')
 	{
 		game->player.diry = 1;
-		game->player.planey = -0.66;
+		game->player.planey = 0.66;
 	}
 	game->player.x += 0.5;
 	game->player.y += 0.5;
