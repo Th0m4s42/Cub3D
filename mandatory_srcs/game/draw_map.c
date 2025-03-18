@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 23:39:16 by curry-san         #+#    #+#             */
-/*   Updated: 2025/03/06 19:57:15 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/18 17:19:47 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,39 @@ static void	draw_player(t_game *game)
 			x++;
 		}
 		y++;
+	}
+	// point de visuel
+	if (game->player.dirx > 0.0)
+	{
+		for (int a = 0; a < 20; a++)
+		{
+			put_pixel(&game->map_img,
+				(WIDTH_MAP / 2) + a, (HEIGHT_MAP / 2), 0xFF0000);
+		}
+	}
+	else if (game->player.dirx < 0.0)
+	{
+		for (int a = 0; a < 20; a++)
+		{
+			put_pixel(&game->map_img,
+				(WIDTH_MAP / 2) - a, (HEIGHT_MAP / 2), 0xFF0000);
+		}
+	}
+	else if (game->player.diry < 0.0)
+	{
+		for (int a = 0; a < 20; a++)
+		{
+			put_pixel(&game->map_img,
+				(WIDTH_MAP / 2), (HEIGHT_MAP / 2) + a, 0xFF0000);
+		}
+	}
+	else
+	{
+		for (int a = 0; a < 20; a++)
+		{
+			put_pixel(&game->map_img,
+				(WIDTH_MAP / 2), (HEIGHT_MAP / 2) - a, 0xFF0000);
+		}
 	}
 }
 
