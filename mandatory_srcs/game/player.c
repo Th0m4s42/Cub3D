@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 11:30:09 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/18 17:38:01 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/18 18:00:16 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ void	init_player(t_game *game)
 	if(game->map[(int)game->player.y][(int)game->player.x] == 'W')
 	{
 		game->player.dirx = -1;
-		game->player.planex = 0.66;
+		game->player.planex = -0.66;
 	}
 	else if(game->map[(int)game->player.y][(int)game->player.x] == 'E')
 	{
 		game->player.dirx = 1;
-		game->player.planex = -0.66;
+		game->player.planex = 0.66;
 	}
 	else if(game->map[(int)game->player.y][(int)game->player.x] == 'S')
 	{
