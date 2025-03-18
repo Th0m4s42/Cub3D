@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:29:38 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/18 16:34:47 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/18 19:49:30 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,10 @@ void	draw_line(t_game *game, int start, int end, int x, int color)
 static int rgb_to_int(int r, int g, int b)
 {
 	int color;
-	
-	color = 0;
-	color |= b * 255;
-	color |= (g * 255) << 8;
-	color |= (r * 255) << 16;
+
+	color = r;
+	color = (color << 8) + g;
+	color = (color << 8) + b;
 	return (color);
 }
 
