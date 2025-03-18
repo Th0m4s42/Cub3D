@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:03:07 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/18 16:44:49 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/18 18:57:32 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,8 @@ t_ray	init_ray(t_game *game, int x)
 	ray.raydiry = game->player.diry + game->player.planey * ray.camerax;
 	ray.mapx = (int)game->player.x;
 	ray.mapy = (int)game->player.y;
-	if (ray.raydiry == 0)
-		ray.raydiry = 1e30;
-	else
-		ray.deltadisty = fabs(1 / ray.raydiry);
-	if (ray.raydirx == 0)
-		ray.raydirx = 1e30;
-	else
-		ray.deltadistx = fabs(1 / ray.raydirx);
+	ray.deltadisty = fabs(1 / ray.raydiry);
+	ray.deltadistx = fabs(1 / ray.raydirx);
 	ray.hit = 0;
 	ray.side = 0;
 	if (ray.raydirx < 0)
@@ -71,7 +65,7 @@ void	dda(t_ray *ray, t_game *game)
 			ray->mapy += ray->stepy;
 			ray->side = 1;
 		}
-		if (game->map[ray->mapy][ray->mapx] == '1')
+		if (game->map[ray->mapy][ray->mapx] > '0')
 			ray->hit = 1;
 	}
 	if (ray->side == 0)
