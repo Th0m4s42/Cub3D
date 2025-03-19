@@ -52,6 +52,7 @@ SRCS := \
 	\
 	$(SRC_DIR)$(KEY_EVENT)key_event.c \
 	$(SRC_DIR)$(KEY_EVENT)movements.c \
+	$(SRC_DIR)$(KEY_EVENT)rotation.c \
 	\
 
 LIBFT_DIR := libft/

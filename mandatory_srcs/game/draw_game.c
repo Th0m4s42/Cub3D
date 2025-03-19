@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:29:38 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/18 19:49:30 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/19 11:55:26 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,10 @@ int	draw_wall(t_game *game)
 		a_key(game);
 	if (game->player.key_right == true)
 		d_key(game);
+	if (game->player.camera_left == true)
+		rotate_left(game);
+	if (game->player.camera_right == true)
+		rotate_right(game);
 	draw_map(game);// APPUIE SUR M !
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/18 16:33:52 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/19 11:56:41 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,6 +221,11 @@ void	w_key(t_game *game);
 void	s_key(t_game *game);
 void	a_key(t_game *game);
 void	d_key(t_game *game);
+
+/********************************ROTATION**************************************/
+
+void	rotate_left(t_game *game);
+void	rotate_right(t_game *game);
 
 /*******************************EXIT*******************************************/
 
