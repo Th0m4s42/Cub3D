@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 23:39:16 by curry-san         #+#    #+#             */
-/*   Updated: 2025/03/18 17:19:47 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/19 10:32:45 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	draw_player(t_game *game)
 		for (int a = 0; a < 20; a++)
 		{
 			put_pixel(&game->map_img,
-				(WIDTH_MAP / 2), (HEIGHT_MAP / 2) + a, 0xFF0000);
+				(WIDTH_MAP / 2), (HEIGHT_MAP / 2) - a, 0xFF0000);
 		}
 	}
 	else
@@ -59,9 +59,10 @@ static void	draw_player(t_game *game)
 		for (int a = 0; a < 20; a++)
 		{
 			put_pixel(&game->map_img,
-				(WIDTH_MAP / 2), (HEIGHT_MAP / 2) - a, 0xFF0000);
+				(WIDTH_MAP / 2), (HEIGHT_MAP / 2) + a, 0xFF0000);
 		}
 	}
+	
 }
 
 static bool	check_wall_map(t_player *player, char **map, int width, int height)

@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:03:07 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/18 19:51:27 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/19 10:35:02 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	dda(t_ray *ray, t_game *game)
 			ray->mapy += ray->stepy;
 			ray->side = 1;
 		}
-		if (game->map[ray->mapx][ray->mapy] > '0')
+		if (game->map[ray->mapy][ray->mapx] == '1')
 			ray->hit = 1;
 	}
 	if (ray->side == 0)
