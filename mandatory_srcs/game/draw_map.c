@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 23:39:16 by curry-san         #+#    #+#             */
-/*   Updated: 2025/03/19 12:04:55 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/20 13:36:40 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,40 +29,11 @@ static void	draw_player(t_game *game)
 		}
 		y++;
 	}
-	// point de visuel
-	if (game->player.dirx > 0.0)
+	for (int a = 0; a < 20 ; a++)
 	{
-		for (int a = 0; a < 20; a++)
-		{
-			put_pixel(&game->map_img,
-				(WIDTH_MAP / 2) + a, (HEIGHT_MAP / 2), 0xFF0000);
-		}
+		put_pixel(&game->map_img,
+			(WIDTH_MAP / 2) + (game->player.dirx * a), (HEIGHT_MAP / 2) + (game->player.diry * a), 0xFF0000);
 	}
-	else if (game->player.dirx < 0.0)
-	{
-		for (int a = 0; a < 20; a++)
-		{
-			put_pixel(&game->map_img,
-				(WIDTH_MAP / 2) - a, (HEIGHT_MAP / 2), 0xFF0000);
-		}
-	}
-	else if (game->player.diry < 0.0)
-	{
-		for (int a = 0; a < 20; a++)
-		{
-			put_pixel(&game->map_img,
-				(WIDTH_MAP / 2), (HEIGHT_MAP / 2) - a, 0xFF0000);
-		}
-	}
-	else
-	{
-		for (int a = 0; a < 20; a++)
-		{
-			put_pixel(&game->map_img,
-				(WIDTH_MAP / 2), (HEIGHT_MAP / 2) + a, 0xFF0000);
-		}
-	}
-	
 }
 
 static bool	check_wall_map(t_player *player, char **map, int width, int height)
