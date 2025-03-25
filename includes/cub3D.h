@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/19 12:05:29 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/25 20:20:48 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,6 +209,7 @@ void		put_pixel(t_img *img, int x, int y, int color);
 void		draw_line(t_game *game, int start, int end, int x, int color);
 int			draw_wall(t_game *game);
 void		draw_map(t_game *game);
+void	draw_texture(t_game *game, t_ray *ray);
 
 /*******************************KEY EVENT**************************************/
 

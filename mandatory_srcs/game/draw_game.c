@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:29:38 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/19 11:55:26 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/25 20:26:58 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,19 @@ int	draw_wall(t_game *game)
 		if (draw_end >= HEIGHT)
 			draw_end = HEIGHT - 1;
 		if (ray.side == 1)
+		{
 			color = 0xFF0000; // Red for y-side walls
+			if (ray.raydiry > 0)
+				color = 0x0000ff;
+		}
 		else if (ray.side == 0)
+		{
 			color = 0x00FF00; // Green for x-side walls
+			if (ray.raydirx > 0)
+				color = 0xff00ff;	
+		}
 		draw_line(game, draw_start, draw_end, x, color);
+		draw_texture(game, &ray);
 		x++;
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->key_img.img, 0, 0);
