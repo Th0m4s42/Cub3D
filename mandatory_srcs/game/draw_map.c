@@ -6,7 +6,7 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 23:39:16 by curry-san         #+#    #+#             */
-/*   Updated: 2025/03/20 13:36:40 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/03/20 16:56:42 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ static void	draw_player(t_game *game)
 	for (int a = 0; a < 20 ; a++)
 	{
 		put_pixel(&game->map_img,
-			(WIDTH_MAP / 2) + (game->player.dirx * a), (HEIGHT_MAP / 2) + (game->player.diry * a), 0xFF0000);
+			(WIDTH_MAP / 2) + ((game->player.dirx - game->player.planex)* a),
+			(HEIGHT_MAP / 2) + ((game->player.diry - game->player.planey)* a), 0xFF0000);
+		put_pixel(&game->map_img,
+			(WIDTH_MAP / 2) + ((game->player.planex + game->player.dirx) * a),
+			(HEIGHT_MAP / 2) + ((game->player.planey + game->player.diry)* a), 0xFF0000);
 	}
 }
 
