@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:29:38 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/27 23:09:06 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/27 23:20:30 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ void	get_color(t_game *game, t_ray *ray)
 	// How much to increase the texture coordinate per screen pixel
 	game->step = 1.0 * game->tex.height / game->line_height;
 	// Starting texture coordinate
-	game->tex_pos = (game->draw_start - HEIGHT / 2 + game->line_height / 2) * game->step;
-	game->tex_y = (int)game->tex_pos & (game->tex.height - 1);
-	game->tex_pos += game->step;
+	game->tex_pos = (game->draw_start - (HEIGHT / 2) + (game->line_height / 2)) * game->step;
 	// game->color = game->south.addr[0];
 }
 
@@ -64,9 +62,12 @@ void	draw_line(t_game *game, int start, int end, int x)
 		put_pixel(&game->key_img, x, i, rgb_to_int(game->visual.cell_r, \
 		game->visual.cell_g, game->visual.cell_b));
 	}
+	get_color(game, &game->ray);
 	while (start < end)
 	{
-		get_color(game, &game->ray);
+		game->tex_y = (int)game->tex_pos & (game->tex.height - 1);
+		game->tex_pos += game->step;
+		// printf("x = %d, y = %d\n", game->tex_x, game->tex_y);
 		put_pixel(&game->key_img, x, start, game->color);
 		start++;
 	}
