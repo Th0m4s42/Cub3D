@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_texture.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:14:12 by curry-san         #+#    #+#             */
-/*   Updated: 2025/03/25 21:00:52 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/27 09:46:16 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_tex	get_texture(t_game *game, t_ray *ray)
 	{
 		if (ray->raydiry > 0)
 			return (game->south);
-		return (game->north)
+		return (game->north);
 	}
 	else if (ray->side == 0)
 	{
