@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/25 20:20:48 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/27 23:08:11 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,18 @@ typedef struct s_game
 	t_img		map_img;
 	void		*mlx;
 	void		*win;
+
+	t_ray		ray;
+	int			line_height;
+	int			draw_start;
+	int			draw_end;
+	uint32_t	color;
+	float		wall_x;
+	int			tex_x;
+	int			tex_y;
+	float		step;
+	float		tex_pos;
+	t_tex		tex;
 }	t_game;
 
 typedef bool	(*t_array)(t_game *game, char *line);
@@ -206,15 +218,19 @@ void	dda(t_ray *ray, t_game *game);
 void		init_player(t_game *game);
 t_player	player_start(char **map);
 void		put_pixel(t_img *img, int x, int y, int color);
-void		draw_line(t_game *game, int start, int end, int x, int color);
+void		draw_line(t_game *game, int start, int end, int x);
 int			draw_wall(t_game *game);
 void		draw_map(t_game *game);
-void	draw_texture(t_game *game, t_ray *ray);
+int			rgb_to_int(int r, int g, int b);
+void		put_pixel(t_img *img, int x, int y, int color);
+void		draw_texture(t_game *game, t_ray *ray);
+void		get_color(t_game *game, t_ray *ray);
 
 /*******************************KEY EVENT**************************************/
 
 void	init_key_event(t_game *game);
 int		cross_event(t_game *game);
+void	action_key(t_game *game);
 
 /********************************MOVEMENTS*************************************/
 

@@ -1,7 +1,7 @@
 NAME := cub3D
 CC := cc
-FLAGS := -Wall -Werror -Wextra -g3 -lm
-# FLAGS := -g
+# FLAGS := -Wall -Werror -Wextra -g3 -lm
+FLAGS := -g -lm
 
 MLX_INCLUDES = -I/opt/X11/include -Iminilibx-linux
 MLX_FLAGS = -Lminilibx-linux -lmlx -L/usr/lib/X11 -lXext -lX11
@@ -48,7 +48,7 @@ SRCS := \
 	$(SRC_DIR)$(GAME)player.c \
 	$(SRC_DIR)$(GAME)draw_game.c \
 	$(SRC_DIR)$(GAME)draw_map.c \
-	$(SRC_DIR)$(GAME)draw_texture.c \
+	$(SRC_DIR)$(GAME)draw_game2.c \
 	$(SRC_DIR)$(GAME)utils_game.c \
 	\
 	$(SRC_DIR)$(KEY_EVENT)key_event.c \

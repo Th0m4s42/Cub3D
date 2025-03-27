@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:13:12 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 17:41:50 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/27 21:15:02 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,14 @@ bool	ft_parsing(t_game *game, char *path)
 	if (check_config_file(game, fd) == false)
 	{
 		get_next_line(-1);
+		close(fd);
 		return (false);
 	}
 	if (check_hole(game->map) == false || checker_map(game->map) == false)
+	{
+		close(fd);
 		return (false);
+	}
+	close(fd);
 	return (true);
 }

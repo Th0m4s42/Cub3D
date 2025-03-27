@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 11:46:33 by curry-san         #+#    #+#             */
-/*   Updated: 2025/03/02 00:30:23 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/27 21:08:07 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,20 @@ void	init_key_event(t_game *game)
 	mlx_hook(game->win, 2, 1L << 0, &key_press, game);
 	mlx_hook(game->win, 3, 1L << 1, &key_release, game);
 	mlx_hook(game->win, 17, 1L << 19, &cross_event, game);
+}
+
+void	action_key(t_game *game)
+{
+	if (game->player.key_up == true)
+		w_key(game);
+	if (game->player.key_down == true)
+		s_key(game);
+	if (game->player.key_left == true)
+		a_key(game);
+	if (game->player.key_right == true)
+		d_key(game);
+	if (game->player.camera_left == true)
+		rotate_left(game);
+	if (game->player.camera_right == true)
+		rotate_right(game);
 }
