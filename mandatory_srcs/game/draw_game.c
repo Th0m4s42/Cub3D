@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:29:38 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/27 23:20:30 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/28 01:18:35 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,16 @@ void	get_color(t_game *game, t_ray *ray)
 	game->step = 1.0 * game->tex.height / game->line_height;
 	// Starting texture coordinate
 	game->tex_pos = (game->draw_start - (HEIGHT / 2) + (game->line_height / 2)) * game->step;
-	// game->color = game->south.addr[0];
+	game->color = game->tex.addr[(game->tex_y * game->tex.size_line) + game->tex_x * game->tex.bpp / 8];
+}
+
+static int	calculate_pixel_color(t_game *game)
+{
+	return (*(int *)(
+		game->tex.addr
+		+ ((game->tex_y * game->tex.size_line)
+			+ ((game->tex.bpp / 8)))
+	));
 }
 
 void	draw_line(t_game *game, int start, int end, int x)
@@ -67,7 +76,8 @@ void	draw_line(t_game *game, int start, int end, int x)
 	{
 		game->tex_y = (int)game->tex_pos & (game->tex.height - 1);
 		game->tex_pos += game->step;
-		// printf("x = %d, y = %d\n", game->tex_x, game->tex_y);
+		game->color = calculate_pixel_color(game);
+		// printf("x = %d, y = %d\n", game->tex.size_line, game->tex_y);
 		put_pixel(&game->key_img, x, start, game->color);
 		start++;
 	}
