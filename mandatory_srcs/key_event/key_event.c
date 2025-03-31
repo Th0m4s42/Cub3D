@@ -6,13 +6,13 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 11:46:33 by curry-san         #+#    #+#             */
-/*   Updated: 2025/03/27 21:08:07 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/31 04:21:14 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
 
-int		key_press(int keycode, t_game *game)
+int	key_press(int keycode, t_game *game)
 {
 	if (keycode == ESC_KEY)
 		mlx_loop_end(game->mlx);
@@ -32,15 +32,10 @@ int		key_press(int keycode, t_game *game)
 		game->player.key_map = false;
 	else if (keycode == KEY_M && game->player.key_map == false)
 		game->player.key_map = true;
-	if (keycode == KEY_P)
-	{
-		game->player.y = 3.9999;
-	}
-	
 	return (0);
 }
 
-int		key_release(int keycode, t_game *game)
+int	key_release(int keycode, t_game *game)
 {
 	if (keycode == CAMERA_LEFT)
 		game->player.camera_left = false;
@@ -57,7 +52,7 @@ int		key_release(int keycode, t_game *game)
 	return (0);
 }
 
-int		cross_event(t_game *game)
+int	cross_event(t_game *game)
 {
 	printf("MLX LOOP END\n");
 	mlx_loop_end(game->mlx);

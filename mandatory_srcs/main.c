@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:02:00 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 21:46:48 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/31 04:36:05 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@ static void	init_mlx(t_game *game)
 		ft_putstr_fd("Error\nmlx_new_image failed\n", 2);
 		exit(1);
 	}
-	game->key_img.addr = mlx_get_data_addr(game->key_img.img, &game->key_img.bpp, &game->key_img.size_line, &game->key_img.endian);
-	game->map_img.addr = mlx_get_data_addr(game->map_img.img, &game->map_img.bpp, &game->map_img.size_line, &game->map_img.endian);
+	game->key_img.addr = mlx_get_data_addr(game->key_img.img, \
+	&game->key_img.bpp, &game->key_img.size_line, &game->key_img.endian);
+	game->map_img.addr = mlx_get_data_addr(game->map_img.img, \
+	&game->map_img.bpp, &game->map_img.size_line, &game->map_img.endian);
 	mlx_put_image_to_window(game->mlx, game->win, game->key_img.img, 0, 0);
 }
 
@@ -87,7 +89,6 @@ int	main(int ac, char **av, char **envp)
 	init_game(&game);
 	if (ft_parsing(&game, *av) == false)
 		return (ft_free_game(&game), 0);
-	// print_visual_value(game.visual, game.map);
 	init_player(&game);
 	init_key_event(&game);
 	mlx_loop_hook(game.mlx, draw_wall, &game);

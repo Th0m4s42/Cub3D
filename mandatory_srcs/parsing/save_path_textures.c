@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:41:11 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/28 01:13:14 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/31 04:19:32 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ static void	get_texture(t_game *game, t_tex *texture, char *path)
 	if (texture->img == NULL)
 		return ;
 	texture->addr = mlx_get_data_addr(texture->img, &texture->bpp,
-		&texture->size_line, &texture->endian);
-	printf("%d\n", texture->size_line);
+			&texture->size_line, &texture->endian);
 }
 
 bool	save_north(t_game *game, char *line)

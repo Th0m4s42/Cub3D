@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 20:14:12 by curry-san         #+#    #+#             */
-/*   Updated: 2025/03/27 22:20:19 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/31 04:25:41 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	put_pixel(t_img *img, int x, int y, int color)
 	img->addr[index + 2] = (color >> 16) & 0xFF;
 }
 
-int rgb_to_int(int r, int g, int b)
+int	rgb_to_int(int r, int g, int b)
 {
-	int color;
+	int	color;
 
 	color = r;
 	color = (color << 8) + g;
@@ -32,19 +32,18 @@ int rgb_to_int(int r, int g, int b)
 	return (color);
 }
 
-// t_tex	get_texture(t_game *game, t_ray *ray)
-// {
-// 	return game->north;
-// 	if (ray->side == 1)
-// 	{
-// 		if (ray->raydiry > 0)
-// 			return (game->south);
-// 		return (game->north);
-// 	}
-// 	else if (ray->side == 0)
-// 	{
-// 		if (ray->raydirx > 0)
-// 			return (game->east);
-// 		return (game->west);
-// 	}
-// }
+t_tex	copy_texture(t_game *game, t_ray *ray)
+{
+	if (ray->side == 1)
+	{
+		if (ray->raydiry > 0)
+			return (game->north);
+		return (game->south);
+	}
+	else
+	{
+		if (ray->raydirx > 0)
+			return (game->west);
+		return (game->east);
+	}
+}

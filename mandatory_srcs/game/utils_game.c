@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 14:09:22 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 13:18:36 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/31 04:25:22 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_tablen(char **tab)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (tab[i])

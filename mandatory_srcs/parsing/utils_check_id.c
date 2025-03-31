@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_check_id.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
+/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:35:24 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/06 17:56:47 by ckenaip          ###   ########.fr       */
+/*   Updated: 2025/03/31 04:13:52 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,26 +42,26 @@ bool	check_id(char *line, size_t i)
 	return (false);
 }
 
-void	print_visual_value(t_visual visual, char **map)
-{
-	printf("Path :\n");
-	printf("\tNO -> %s\n", visual.north);
-	printf("\tWE -> %s\n", visual.west);
-	printf("\tEA -> %s\n", visual.east);
-	printf("\tSO -> %s\n", visual.south);
-	printf("Floor value :\n");
-	printf("\tR = %d, G = %d, B = %d\n",
-		visual.floor_r, visual.floor_g, visual.floor_b);
-	printf("Celling value :\n");
-	printf("\tR = %d, G = %d, B = %d\n",
-		visual.cell_r, visual.cell_g, visual.cell_b);
-	if (map)
-	{
-		for (int i = 0; map[i]; i++) {
-			printf("%s", map[i]);
-		};
-		printf("\n");
-	}
-	else
-		printf("No map\n");
-}
+// void	print_visual_value(t_visual visual, char **map)
+// {
+// 	printf("Path :\n");
+// 	printf("\tNO -> %s\n", visual.north);
+// 	printf("\tWE -> %s\n", visual.west);
+// 	printf("\tEA -> %s\n", visual.east);
+// 	printf("\tSO -> %s\n", visual.south);
+// 	printf("Floor value :\n");
+// 	printf("\tR = %d, G = %d, B = %d\n",
+// 		visual.floor_r, visual.floor_g, visual.floor_b);
+// 	printf("Celling value :\n");
+// 	printf("\tR = %d, G = %d, B = %d\n",
+// 		visual.cell_r, visual.cell_g, visual.cell_b);
+// 	if (map)
+// 	{
+// 		for (int i = 0; map[i]; i++) {
+// 			printf("%s", map[i]);
+// 		};
+// 		printf("\n");
+// 	}
+// 	else
+// 		printf("No map\n");
+// }

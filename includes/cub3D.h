@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/27 23:08:11 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/31 04:16:39 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,6 +225,7 @@ int			rgb_to_int(int r, int g, int b);
 void		put_pixel(t_img *img, int x, int y, int color);
 void		draw_texture(t_game *game, t_ray *ray);
 void		get_color(t_game *game, t_ray *ray);
+t_tex		copy_texture(t_game *game, t_ray *ray);
 
 /*******************************KEY EVENT**************************************/
 

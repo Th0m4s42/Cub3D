@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:13:12 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/27 21:15:02 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/31 04:19:48 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static bool	save_visual(t_game *game, char **line, int fd)
 	t_array	checker_identifier[7];
 	size_t	i;
 	size_t	y;
-	
+
 	i = -1;
 	init_function_array(&checker_identifier);
 	while (*line)

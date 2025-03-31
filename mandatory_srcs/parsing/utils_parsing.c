@@ -6,7 +6,7 @@
 /*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:26:08 by curry-san         #+#    #+#             */
-/*   Updated: 2025/02/19 21:50:21 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/03/31 04:20:02 by curry-san        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ bool	empty_line(char *line)
 		return (true);
 	return (false);
 }
-
-
 
 int	cub3d_atoi(char *str)
 {
