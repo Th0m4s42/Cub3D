@@ -1,7 +1,7 @@
 NAME := cub3D
 CC := cc
-# FLAGS := -Wall -Werror -Wextra -g3 -lm
-FLAGS := -g -lm
+FLAGS := -Wall -Werror -Wextra -g3
+#FLAGS := -g -lm
 
 MLX_INCLUDES = -I/opt/X11/include -Iminilibx-linux
 MLX_FLAGS = -Lminilibx-linux -lmlx -L/usr/lib/X11 -lXext -lX11
@@ -73,7 +73,7 @@ $(OBJ_DIR)%.o : $(SRC_DIR)%.c
 $(NAME) : $(OBJS)
 	make -C libft/
 	make -C minilibx-linux/
-	@$(CC) $(FLAGS) -o $(NAME) $(INCLUDES) $(OBJS) $(MLX_FLAGS) $(LIBFT_FLAGS)
+	@$(CC) $(FLAGS) -o $(NAME) $(INCLUDES) $(OBJS) $(MLX_FLAGS) $(LIBFT_FLAGS) -lm
 	@echo "$(Green)$(NAME) CREATED $(White)"
 
 all : $(NAME)

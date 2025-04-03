@@ -6,11 +6,37 @@
 /*   By: thbasse <thbasse@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:03:07 by thbasse           #+#    #+#             */
-/*   Updated: 2025/03/19 10:35:02 by thbasse          ###   ########.fr       */
+/*   Updated: 2025/04/03 14:25:14 by thbasse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
+
+static void	init_dda(t_ray *ray, t_game *game)
+{
+	ray->mapx = (int)game->player.x;
+	ray->mapy = (int)game->player.y;
+	if (ray->raydirx < 0)
+	{
+		ray->stepx = -1;
+		ray->sidedistx = (game->player.x - ray->mapx) * ray->deltadistx;
+	}
+	else
+	{
+		ray->stepx = 1;
+		ray->sidedistx = (ray->mapx + 1.0 - game->player.x) * ray->deltadistx;
+	}
+	if (ray->raydiry < 0)
+	{
+		ray->stepy = -1;
+		ray->sidedisty = (game->player.y - ray->mapy) * ray->deltadisty;
+	}
+	else
+	{
+		ray->stepy = 1;
+		ray->sidedisty = (ray->mapy + 1.0 - game->player.y) * ray->deltadisty;
+	}
+}
 
 t_ray	init_ray(t_game *game, int x)
 {
@@ -25,26 +51,7 @@ t_ray	init_ray(t_game *game, int x)
 	ray.deltadisty = fabs(1 / ray.raydiry);
 	ray.hit = 0;
 	ray.side = 0;
-	if (ray.raydirx < 0)
-	{
-		ray.stepx = -1;
-		ray.sidedistx = (game->player.x - ray.mapx) * ray.deltadistx;
-	}
-	else
-	{
-		ray.stepx = 1;
-		ray.sidedistx = (ray.mapx + 1.0 - game->player.x) * ray.deltadistx;
-	}
-	if (ray.raydiry < 0)
-	{
-		ray.stepy = -1;
-		ray.sidedisty = (game->player.y - ray.mapy) * ray.deltadisty;
-	}
-	else
-	{
-		ray.stepy = 1;
-		ray.sidedisty = (ray.mapy + 1.0 - game->player.y) * ray.deltadisty;
-	}
+	init_dda(&ray, game);
 	return (ray);
 }
 
