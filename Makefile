@@ -78,7 +78,7 @@ $(NAME) : $(OBJS)
 	@$(CC) $(FLAGS) -o $(NAME) $(INCLUDES) $(OBJS) $(MLX_FLAGS) $(LIBFT_FLAGS) -lm
 	@echo "$(Green)$(NAME) CREATED $(White)"
 
-%.o : %.cpp
+%.o : %.c
 		@mkdir -p $(@D)
 		$(CC) $(FLAGS) -c $< -o $@
 
