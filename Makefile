@@ -1,7 +1,6 @@
 NAME := cub3D
 CC := cc
-FLAGS := -Wall -Werror -Wextra -g3
-#FLAGS := -g -lm
+FLAGS := -MMD -Wall -Werror -Wextra -g3
 
 MLX_INCLUDES = -I/opt/X11/include -Iminilibx-linux
 MLX_FLAGS = -Lminilibx-linux -lmlx -L/usr/lib/X11 -lXext -lX11
@@ -18,6 +17,7 @@ White=\033[0;37m
 
 SRC_DIR := mandatory_srcs/
 OBJ_DIR := objs/
+
 
 PARSING := parsing/
 RAYCASTING := raycasting/
@@ -65,6 +65,8 @@ INCLUDES := -I includes
 
 OBJS := $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
+DEP		:= $(OBJS:.o=.d)
+
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
 	@mkdir -p $(@D)
 	@$(CC) $(FLAGS) $(INCLUDES) -c -o $@ $<
@@ -75,6 +77,10 @@ $(NAME) : $(OBJS)
 	make -C minilibx-linux/
 	@$(CC) $(FLAGS) -o $(NAME) $(INCLUDES) $(OBJS) $(MLX_FLAGS) $(LIBFT_FLAGS) -lm
 	@echo "$(Green)$(NAME) CREATED $(White)"
+
+%.o : %.cpp
+		@mkdir -p $(@D)
+		$(CC) $(FLAGS) -c $< -o $@
 
 all : $(NAME)
 
@@ -91,5 +97,7 @@ fclean : clean
 	@echo "$(Red)$(NAME) DELETED $(White)"
 
 re : fclean all
+
+-include $(DEP)
 
 .PHONY: re clean fclean

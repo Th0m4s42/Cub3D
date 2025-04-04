@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:03:04 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/31 04:16:39 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/04/04 14:03:51 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 //								DEFINES										  //
 ////////////////////////////////////////////////////////////////////////////////
 
-# define WIDTH 1080
+# define WIDTH 1088
 # define HEIGHT 520
 # define WIDTH_MAP 150
 # define HEIGHT_MAP 80
@@ -89,7 +89,7 @@ typedef struct s_visual
 	int		cell_b;
 }	t_visual;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	int		bpp;
 	int		size_line;
@@ -98,39 +98,39 @@ typedef struct	s_img
 	void	*img;
 }	t_img;
 
-typedef struct	s_tex
+typedef struct s_tex
 {
 	int		width;
 	int		height;
-	
+
 	int		bpp;
 	int		size_line;
 	int		endian;
-	
+
 	char	*addr;
 	void	*img;
 }	t_tex;
 
 typedef struct s_ray
 {
-	float	camerax;		// Position X sur le plan caméra (-1 à 1)
-	float	raydirx;		// Direction du rayon en X
-	float	raydiry;		// Direction du rayon en Y
+	float	camerax;
+	float	raydirx;
+	float	raydiry;
 
-	int		mapx;			// Position X actuelle sur la grille
-	int		mapy;			// Position Y actuelle sur la grille
+	int		mapx;
+	int		mapy;
 
-	float	sidedistx;		// Distance parcourue dans X avant de rencontrer une ligne de grille
-	float	sidedisty;		// Distance parcourue dans Y avant de rencontrer une ligne de grille
+	float	sidedistx;
+	float	sidedisty;
 
-	float	deltadistx;		// Distance entre deux lignes de grille en X
-	float	deltadisty;		// Distance entre deux lignes de grille en Y
-	float	perpwalldist;	// Distance perpendiculaire à la caméra (corrige la distorsion)
+	float	deltadistx;
+	float	deltadisty;
+	float	perpwalldist;
 
-	int		stepx;			// Direction du pas en X (+1 ou -1)
-	int		stepy;			// Direction du pas en Y (+1 ou -1)
-	int		hit;			// 1 si un mur est touché, sinon 0
-	int		side; 			// 0 = mur vertical, 1 = mur horizontal
+	int		stepx;
+	int		stepy;
+	int		hit;
+	int		side;
 }	t_ray;
 
 typedef struct s_game
@@ -168,49 +168,48 @@ typedef bool	(*t_array)(t_game *game, char *line);
 
 /*******************************PARSING****************************************/
 
-
 /*	check_args.c	*/
-bool	check_args(int ac, char **av, char **envp);
+bool		check_args(int ac, char **av, char **envp);
 
 /*	ft_check_hole.c	*/
-bool	check_hole(char **map);
+bool		check_hole(char **map);
 
 /*	ft_checker_map.c	*/
-bool	checker_map(char **map);
+bool		checker_map(char **map);
 
 /*	ft_parsing.c	*/
-bool	ft_parsing(t_game *game, char *path);
+bool		ft_parsing(t_game *game, char *path);
 
 /*	save_color_background.c	*/
-bool	save_celling(t_game *game, char *line);
-bool	save_floor(t_game *game, char *line);
+bool		save_celling(t_game *game, char *line);
+bool		save_floor(t_game *game, char *line);
 
 /*	save_path_textures.c	*/
-bool	save_north(t_game *game, char *line);
-bool	save_south(t_game *game, char *line);
-bool	save_west(t_game *game, char *line);
-bool	save_east(t_game *game, char *line);
+bool		save_north(t_game *game, char *line);
+bool		save_south(t_game *game, char *line);
+bool		save_west(t_game *game, char *line);
+bool		save_east(t_game *game, char *line);
 
 /*	utils_check_id.c	*/
-bool	check_id(char *line, size_t i);
+bool		check_id(char *line, size_t i);
 
 /*	utils_parsing.c	*/
-bool	incr_to_identifier(char *line, char *id, size_t *i);
-bool	in_charset(char c, char *charset);
-bool	all_identifier_set(t_visual visual);
-bool	empty_line(char *line);
-int		cub3d_atoi(char *str);
+bool		incr_to_identifier(char *line, char *id, size_t *i);
+bool		in_charset(char c, char *charset);
+bool		all_identifier_set(t_visual visual);
+bool		empty_line(char *line);
+int			cub3d_atoi(char *str);
 
 /*	utils_realloc	*/
-void	ft_realloc_cub3d(char ***src, char *line);
+void		ft_realloc_cub3d(char ***src, char *line);
 
 /*	BONUS non normé	*/
-void	print_visual_value(t_visual visual, char **map);// in check id file
+void		print_visual_value(t_visual visual, char **map);// in check id file
 
 /*******************************RAYCASTING*************************************/
 
-t_ray	init_ray(t_game *game, int x);
-void	dda(t_ray *ray, t_game *game);
+t_ray		init_ray(t_game *game, int x);
+void		dda(t_ray *ray, t_game *game);
 
 /*******************************GAME*******************************************/
 
@@ -229,27 +228,27 @@ t_tex		copy_texture(t_game *game, t_ray *ray);
 
 /*******************************KEY EVENT**************************************/
 
-void	init_key_event(t_game *game);
-int		cross_event(t_game *game);
-void	action_key(t_game *game);
+void		init_key_event(t_game *game);
+int			cross_event(t_game *game);
+void		action_key(t_game *game);
 
 /********************************MOVEMENTS*************************************/
 
-void	w_key(t_game *game);
-void	s_key(t_game *game);
-void	a_key(t_game *game);
-void	d_key(t_game *game);
+void		w_key(t_game *game);
+void		s_key(t_game *game);
+void		a_key(t_game *game);
+void		d_key(t_game *game);
 
 /********************************ROTATION**************************************/
 
-void	rotate_left(t_game *game);
-void	rotate_right(t_game *game);
+void		rotate_left(t_game *game);
+void		rotate_right(t_game *game);
 
 /*******************************EXIT*******************************************/
 
-void	ft_free_game(t_game *game);
+void		ft_free_game(t_game *game);
 
 /*		POUBELLE	*/
-size_t	ft_tablen(char **tab);
+size_t		ft_tablen(char **tab);
 
 #endif

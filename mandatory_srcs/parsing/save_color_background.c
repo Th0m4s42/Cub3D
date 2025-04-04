@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   save_color_background.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: curry-san <curry-san@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ckenaip <ckenaip@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:41:07 by ckenaip           #+#    #+#             */
-/*   Updated: 2025/03/31 04:20:17 by curry-san        ###   ########.fr       */
+/*   Updated: 2025/04/04 14:04:34 by ckenaip          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static bool	check_syntaxe(t_game *game, char *line, char id)
 	y = 0;
 	while (y < 3)
 	{
-		if (y < 2 && (line[i] < '0' || line[i] > '9'))
+		if (line[i] < '0' || line[i] > '9')
 			return (false);
 		if (save_floor_value(game, (line + i), y, id) == false
 			|| save_celling_value(game, (line + i), y, id) == false)
